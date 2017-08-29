@@ -1,7 +1,9 @@
 # 4/ Use basic-auth to secure published prototypes
-###### Author(s): Steven Adams
-###### Status: Accepted
-###### Date: 29th August 2017
+**Author(s)**: Steven Adams
+
+**Status**: Accepted
+
+**Date**: 29th August 2017
 
 ## Context
 Given that prototypes built using the NHSUK prototype kit will use the same styling and branding as live NHSUK services, if a member of the public came across the prototype they may confuse it with a live service. It would be beneficial to secure these prototypes behind some level of authentication.

@@ -1,7 +1,9 @@
 # 2/ Use NPM for package management
-###### Author(s): Steven Adams
-###### Status: Accepted
-###### Date: 29th August 2017
+**Author(s)**: Steven Adams
+
+**Status**: Accepted
+
+**Date**: 29th August 2017
 
 ## Context
 The prototype kit will need a way to consume the dependencies it requires to run. These will include think like getting the correct version of `Express`, the framework that prototype kit app is built on, and pulling in the correct version of the NHSUK UI kit assets.

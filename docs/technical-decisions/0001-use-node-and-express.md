@@ -1,7 +1,9 @@
 # 1/ Use Node and Express
-###### Author(s): Steven Adams
-###### Status: Accepted
-###### Date: 29th August 2017
+**Author(s)**: Steven Adams
+
+**Status**: Accepted
+
+**Date**: 29th August 2017
 
 ## Context
 The prototype kit application will need to operate similarly to a live service, depending on the level of fidelity required for testing. This means that a server is required. To make the prototype kit easy to use for different levels of coding experience we want to implement auto routing (or route matching) for template files, the simplest way to achieve this this dynamically is to have an application running on a server.

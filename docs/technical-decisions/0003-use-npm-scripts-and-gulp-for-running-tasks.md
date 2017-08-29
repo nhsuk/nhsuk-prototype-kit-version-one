@@ -1,7 +1,9 @@
 # 4/ Use NPM scripts and Gulp for running tasks
-###### Author(s): Steven Adams
-###### Status: Accepted
-###### Date: 29th August 2017
+**Author(s)**: Steven Adams
+
+**Status**: Accepted
+
+**Date**: 29th August 2017
 
 ## Context
 There are lots of different tasks that need processed in order to get the prototype kit up and running. Tasks such as; installing dependencies, moving files from dependencies into the app file structure, and most importantly - running the application.
