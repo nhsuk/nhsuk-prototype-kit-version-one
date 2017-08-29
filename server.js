@@ -1,30 +1,37 @@
 /**
- * Module dependencies.
+ * .env file
+ */
+require('dotenv').config()
+/**
+ * Module dependencies
  */
 const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
-const favicon = require('serve-favicon')
+// const favicon = require('serve-favicon')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
 // const debug = require('debug')('nhsuk-prototype-kit:server')
-const http = require('http')
+// const http = require('http')
 const chalk = require('chalk')
 const browserSync = require('browser-sync')
 
 /**
  * Config
  */
-const config = require('./app-config.js')
+const config = require('./config.js').app
 
 /**
  * Utils
  */
 const utils = require('./lib/utils.js')
 
+let username = process.env.USERNAME
+let password = process.env.PASSWORD
 let env = process.env.NODE_ENV || 'development'
 const useBrowserSync = config.useBrowserSync.toLowerCase()
+const useAuth = process.env.USE_AUTH || config.useAuth.toLowerCase()
 
 env = env.toLowerCase()
 
@@ -32,6 +39,12 @@ const router = express.Router()
 const routes = require('./app/routes')
 
 let app = express()
+
+// Authenticate against the environment-provided credentials, if running
+// the app in production
+if (env === 'production' && useAuth === 'true') {
+  app.use(utils.productionAuth(username, password))
+}
 
 app.set('view engine', 'hbs')
 // hbs.registerPartials(__dirname + '/views/partials' [, callback]);
