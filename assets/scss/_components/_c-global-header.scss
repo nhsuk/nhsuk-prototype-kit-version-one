@@ -1,0 +1,8 @@
+.c-global-header {
+  background-color: var(--color-nhs-blue);
+  background-image: radial-gradient(circle at center, var(--color-bright-blue) 0, var(--color-nhs-blue) 100%);
+  color: var(--color-white);
+  // padding-bottom: calc(var(--global-spacing-unit) * 29); //116px
+  padding-top: calc(var(--global-spacing-unit) * 14); //56px
+  padding-bottom: calc(var(--global-spacing-unit) * 14); //56px
+}

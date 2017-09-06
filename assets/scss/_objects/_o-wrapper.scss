@@ -1,0 +1,14 @@
+.o-wrapper {
+  max-width: calc(var(--layout-site-width) + (var(--layout-gutter) * 2));
+  // margin-right: var(--layout-gutter);
+  // margin-left: var(--layout-gutter);
+  padding-right: calc(var(--layout-gutter) / 2);
+  padding-left: calc(var(--layout-gutter) / 2);
+
+  @media only screen and (min-width : 720px) {
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: var(--layout-gutter);
+    padding-left: var(--layout-gutter);
+  }
+}

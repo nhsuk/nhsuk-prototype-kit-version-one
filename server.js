@@ -3,7 +3,7 @@
  */
 const express = require('express')
 const path = require('path')
-const hbs = require('hbs')
+const hbs = require('express-handlebars')
 const favicon = require('serve-favicon')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
@@ -33,9 +33,13 @@ const routes = require('./app/routes')
 
 let app = express()
 
-app.set('view engine', 'hbs')
-// hbs.registerPartials(__dirname + '/views/partials' [, callback]);
-hbs.registerPartials(path.join(__dirname, 'app', 'views', 'partials'))
+app.engine('.hbs', hbs({
+  extname: '.hbs',
+  defaultLayout: 'nhsuk_layout',
+  layoutsDir: 'app/views/layouts',
+  partialsDir: 'app/views/partials'
+}))
+app.set('view engine', '.hbs')
 
 app.set('views', path.join(__dirname, 'app', 'views'))
 

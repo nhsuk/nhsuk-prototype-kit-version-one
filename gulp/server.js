@@ -2,7 +2,7 @@ const fs = require('fs')
 const path = require('path')
 const gulp = require('gulp')
 const nodemon = require('gulp-nodemon')
-const config = require('./config')
+const config = require('../config').gulp
 
 gulp.task('server', function () {
   nodemon({
