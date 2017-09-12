@@ -1,0 +1,9 @@
+:root {
+  --layout-site-width: 960px;
+  --layout-gutter: calc(var(--global-spacing-unit) * 8);
+
+  --layout-breakpoint-sm: 480px;
+  --layout-breakpoint-md: 720px;
+  --layout-breakpoint-lg: 1024px;
+  --layout-breakpoint-xl: 1280px;
+}
