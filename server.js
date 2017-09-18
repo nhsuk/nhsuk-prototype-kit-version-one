@@ -7,7 +7,7 @@ require('dotenv').config()
  */
 const express = require('express')
 const path = require('path')
-const hbs = require('express-handlebars')
+const handlebars = require('express-handlebars')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -45,12 +45,14 @@ if (env === 'production' && useAuth === 'true') {
   app.use(utils.productionAuth(username, password))
 }
 
-app.engine('.hbs', hbs({
+// set view engine to handlebars
+const hbs = handlebars.create({
   extname: '.hbs',
   defaultLayout: 'nhsuk_layout',
   layoutsDir: 'app/views/layouts',
   partialsDir: 'app/views/partials'
-}))
+})
+app.engine('.hbs', hbs.engine)
 app.set('view engine', '.hbs')
 
 app.set('views', path.join(__dirname, 'app', 'views'))
@@ -74,12 +76,7 @@ app.get(/\.html?$/i, function (req, res) {
 
 // Auto render any view that exists
 
-// App folder routes get priority
-app.get(/^\/([^.]+)$/, function (req, res) {
-  utils.matchRoutes(req, res)
-})
-
-routes(router)
+routes(router, hbs)
 app.use('/', router)
 
 // Strip .html and .htm if provided

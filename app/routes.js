@@ -10,8 +10,8 @@ const routes = files.map((file) => {
   return require(path.resolve(__dirname, 'routes', file.replace('.js', '')))
 })
 
-module.exports = function (router) {
+module.exports = function (router, hbs) {
   routes.forEach(function (route) {
-    route(router)
+    route(router, hbs)
   })
 }
