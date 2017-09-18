@@ -7,8 +7,7 @@ require('dotenv').config()
  */
 const express = require('express')
 const path = require('path')
-const hbs = require('hbs')
-// const favicon = require('serve-favicon')
+const hbs = require('express-handlebars')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
@@ -46,9 +45,13 @@ if (env === 'production' && useAuth === 'true') {
   app.use(utils.productionAuth(username, password))
 }
 
-app.set('view engine', 'hbs')
-// hbs.registerPartials(__dirname + '/views/partials' [, callback]);
-hbs.registerPartials(path.join(__dirname, 'app', 'views', 'partials'))
+app.engine('.hbs', hbs({
+  extname: '.hbs',
+  defaultLayout: 'nhsuk_layout',
+  layoutsDir: 'app/views/layouts',
+  partialsDir: 'app/views/partials'
+}))
+app.set('view engine', '.hbs')
 
 app.set('views', path.join(__dirname, 'app', 'views'))
 
@@ -126,7 +129,7 @@ utils.findAvailablePort(app, function (port) {
         ui: false,
         files: ['public/**/*.*', 'app/views/**/*.*'],
         ghostmode: false,
-        open: false,
+        open: true,
         notify: false,
         logLevel: 'error'
       })

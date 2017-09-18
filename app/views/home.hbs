@@ -1,0 +1,62 @@
+<!-- <h1>{{title}}</h1>
+<p>Welcome to the {{title}}</p> -->
+
+<!-- {{> components/local_header
+  title='Blisters'
+  text='Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP.'
+}} -->
+
+<div class="o-wrapper">
+
+  <!-- {{> components/button modifiers=['blue', 'big']}} -->
+
+  {{#> components/box}}
+    <div class="o-layout u-clearfix">
+      <div class="o-layout__item u-width-1/2">
+        <h2 class="c-heading c-heading--md c-heading--underline">Health A-Z</h2>
+
+        <ul>
+            <li>symptoms</li>
+            <li>when to seek help</li>
+            <li>treatments</li>
+        </ul>
+
+        <p>
+            <a href="http://www.nhs.uk/Conditions/Pages/hub.aspx" class="arrow">Search the A-Z</a>
+        </p>
+      </div>
+      <div class="o-layout__item u-width-1/2">
+        <h2 class="c-heading c-heading--md c-heading--underline">Understand your medicines</h2>
+
+        <ul>
+            <li>side effects</li>
+            <li>how they work</li>
+            <li>how to take them</li>
+        </ul>
+
+        <p>
+            <a href="http://beta.nhs.uk/medicines" class="arrow">Find a medicine</a>
+        </p>
+      </div>
+    </div>
+  {{/components/box}}
+
+  <div class="o-layout u-clearfix">
+    <div class="o-layout__item u-width-1/3">
+      {{> components/card
+        title="BMI calculator"
+        description="Use the BMI calculator to find out if you or your child's weight is healthy."
+        link_url="http://www.nhs.uk/tools/pages/healthyweightcalculator.aspx"
+        link_text="Go to BMI calculator"
+        image_source= "https://beta-platform.service.nhs.uk/static/beta/images/expo2017/features/bmi-calculator.jpg"
+        image_alt_text="BMI calculator"
+      }}
+    </div>
+    <div class="o-layout__item u-width-1/3">
+
+    </div>
+    <div class="o-layout__item u-width-1/3">
+
+    </div>
+  </div>
+</div>

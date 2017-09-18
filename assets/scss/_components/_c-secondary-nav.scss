@@ -1,0 +1,17 @@
+.c-secondary-nav {
+  list-style: none;
+  padding-left: 0;
+  color: var(--color-white);
+  float: left;
+}
+
+.c-secondary-nav__item {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: calc(var(--global-spacing-unit) * 8);
+}
+
+.c-secondary-nav__link {
+  color: inherit;
+  text-decoration: none;
+}

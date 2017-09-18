@@ -1,12 +1,12 @@
+const srcPath = './assets/'
+const destPath = './public/'
+
 // Use this file to change prototype configuration.
 
 // Note: prototype config can be overridden using environment variables (eg on heroku)
 
 module.exports = {
   app: {
-    // Service name used in header. Eg: 'Renew your passport'
-    serviceName: 'Service name goes here',
-
     // Default port that prototype runs on
     port: '3000',
 
@@ -31,12 +31,17 @@ module.exports = {
 
   gulp: {
     paths: {
-      public: 'public/',
-      assets: 'app/assets/',
+      public: destPath,
+      assets: srcPath,
       docsAssets: 'docs/assets/',
-      nhsAssets: 'govuk_modules/',
+      // nhsukAssets: 'govuk_modules/',
       nodeModules: 'node_modules/',
       lib: 'lib/'
+    },
+    css: {
+      // src: srcPath + 'scss/**/[!_]*.scss',
+      src: srcPath + 'scss/**/*.scss',
+      dest: destPath + 'stylesheets'
     }
   }
 

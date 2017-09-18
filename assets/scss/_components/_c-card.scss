@@ -1,0 +1,19 @@
+.c-card {
+  background-color: var(--color-grey-5);
+  border: #D6DBDE 1px solid;
+  height: 100%;
+  margin-bottom: calc(var(--global-spacing-unit) * 8);
+  padding: calc(var(--global-spacing-unit) * 3);
+  padding-bottom: calc(var(--global-spacing-unit) * 13);
+  position: relative;
+}
+
+.c-card__image {
+  max-width: 100%;
+}
+
+.c-card__title {
+  border-bottom: var(--color-nhs-blue) var(--global-spacing-unit) solid;
+  margin-bottom: calc(var(--global-spacing-unit) * 3);
+  padding-bottom: calc(var(--global-spacing-unit) * 2);
+}
