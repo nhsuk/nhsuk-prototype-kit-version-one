@@ -1,0 +1,200 @@
+{{> components/local_header
+  title="Service Finder"}}
+<h3>
+  Here is a map of services near
+  {{#if validated.isGeolocationStrategy}}
+    your location
+  {{else}}
+    {{validated.location}}
+  {{/if}}
+  <a href="your-location">Change</a>
+</h3>
+<div class="grid-row">
+  <div id="map" class="column--three-quarters"
+       data-user-lat="{{validated.latitude}}"
+       data-user-lng="{{validated.longitude}}"></div>
+  <div id="right-panel" class="column--one-quarter"></div>
+</div>
+<div id="directions"></div>
+
+<style>
+.grid-row { display: flex; }
+.column--three-quarters { flex: 3 0 0; }
+.column--one-quarter { flex: 1 0 0; }
+
+#map {
+  width: 100%;
+  height: 600px;
+}
+
+#right-panel {
+  font-size: smaller;
+  height: 600px;
+  padding: 10px;
+  overflow-y: scroll;
+}
+
+#right-panel .highlighted {
+  background-color: aliceblue;
+}
+
+#right-panel .name {
+  cursor: pointer;
+}
+
+#openNowUI {
+  background-color: #fff;
+  border: 2px solid #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.3);
+  cursor: pointer;
+  float: left;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+#openNowLabel {
+  color: rgb(25,25,25);
+  font-family: Roboto,Arial,sans-serif;
+  font-size: 15px;
+  line-height: 25px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+</style>
+
+<script>
+/* global google */
+
+var map, infowindow, rightPanel, userLocation, directionsDisplay, directionsService
+var markers = []
+
+function initMap () { // eslint-disable-line no-unused-vars
+  const mapElement = document.getElementById('map')
+  rightPanel = document.getElementById('right-panel')
+  userLocation = {
+    lat: parseFloat(mapElement.getAttribute('data-user-lat')),
+    lng: parseFloat(mapElement.getAttribute('data-user-lng'))
+  }
+  map = new google.maps.Map(mapElement, {
+    zoom: 14,
+    center: userLocation
+  })
+
+  // drop a marker at the user's current location
+  new google.maps.Marker({ // eslint-disable-line no-new
+    map: map,
+    position: userLocation,
+    title: 'You are here',
+    icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+  })
+
+  // custom control to toggle openNow search term
+  var openToggleControl = document.createElement('div')
+  openToggleControl.innerHTML = '<div id="openNowUI"><label id="openNowLabel"><input type="checkbox" checked> Open now</label></div>'
+  openToggleControl.style.paddingTop = '10px'
+  openToggleControl.index = 1
+
+  openToggleControl.addEventListener('change', function (ev) {
+    runPharmacySearch(ev.target.checked)
+  })
+
+  map.controls[google.maps.ControlPosition.TOP_CENTER].push(openToggleControl)
+
+  infowindow = new google.maps.InfoWindow()
+  directionsDisplay = new google.maps.DirectionsRenderer()
+  directionsService = new google.maps.DirectionsService()
+
+  directionsDisplay.setMap(map)
+  directionsDisplay.setPanel(document.getElementById('directions'))
+
+  runPharmacySearch(true)
+}
+
+function runPharmacySearch (openNow) {
+  // clear all markers and results
+  markers.forEach(function (marker) {
+    marker.setMap(null)
+  })
+  markers = []
+  rightPanel.innerHTML = ''
+  document.getElementById('directions').innerHTML = ''
+
+  var request = {
+    location: userLocation,
+    radius: 2000,
+    openNow: openNow,
+    type: 'pharmacy'
+  }
+
+  var service = new google.maps.places.PlacesService(map)
+  service.textSearch(request, callback)
+}
+
+function callback (results, status) {
+  if (status === google.maps.places.PlacesServiceStatus.OK) {
+    for (var i = 0; i < results.length; i++) {
+      createMarker(results[i], i)
+    }
+  }
+}
+
+function createMarker (place, i) {
+  var label = String.fromCharCode(65 + i % 26)
+  var placeLoc = place.geometry.location
+  var marker = new google.maps.Marker({
+    map: map,
+    position: placeLoc,
+    label: label
+  })
+  markers.push(marker)
+
+  var resultContent =
+    '<span class="name">' +
+    place.name +
+    '</span><br><small>' +
+    place.formatted_address.replace(', United Kingdom', '') +
+    '</small>'
+  var resultElement = document.createElement('p')
+  resultElement.setAttribute('data-id', place.place_id)
+  resultElement.innerHTML = '<span class="label">' + label + ':</span> ' + resultContent
+
+  resultElement = rightPanel.insertAdjacentElement('beforeend', resultElement)
+  resultElement.addEventListener('click', function () {
+    google.maps.event.trigger(marker, 'click')
+  })
+
+  google.maps.event.addListener(marker, 'click', function () {
+    infowindow.setContent(resultContent)
+    infowindow.open(map, this)
+
+    // remove all existing highlights
+    var highlighted = rightPanel.getElementsByClassName('highlighted')
+    Array.prototype.forEach.call(highlighted, function (el) {
+      el.classList.remove('highlighted')
+    })
+
+    // highlight the clicked result in the right panel and scroll it into view
+    var clickedResult = rightPanel.querySelector('[data-id=' + place.place_id + ']')
+    if (clickedResult) {
+      clickedResult.classList.add('highlighted')
+      clickedResult.scrollIntoView(false)
+    }
+
+    directionsService.route({
+      origin: userLocation,
+      destination: place.place_id ? {placeId: place.place_id} : placeLoc,
+      travelMode: 'WALKING'
+    }, function (response, status) {
+      if (status === 'OK') {
+        directionsDisplay.setDirections(response)
+        directionsDisplay.setOptions({suppressMarkers: true})
+      } else {
+        window.alert('Directions request failed due to ' + status)
+      }
+    })
+  })
+}
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key={{apiKey}}&libraries=places&callback=initMap"></script>

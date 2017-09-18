@@ -10,3 +10,8 @@ We have tried to make it as easy as possible for everyone to use this kit, wheth
 Before publishing your prototypes online, they must be protected by a username and password. This will remove any confusion from members of the public finding your prototypes and mistaking them for real services.
 
 You must protect user privacy at all times, even when using prototypes. Always make sure you are handling user data appropriately.
+
+## Running the example prototypes
+In order to run the example prototypes that use Google's mapping services, you must supply
+an [API key](https://developers.google.com/maps/documentation/javascript/get-api-key) that
+has the following services enabled;  Google Places API Web Service, Google Maps JavaScript API, Google Maps Directions API and Google Maps Geocoding API. Provide the key using the environment variable *GOOGLE_MAPS_API_KEY*.
