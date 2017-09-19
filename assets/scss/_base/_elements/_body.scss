@@ -1,9 +1,9 @@
 body {
-  font-family: var(--global-font-stack);
+  font-family: $--global-font-stack;
   font-size: 1rem;
-  font-weight: var(--base-font-weight);
-  line-height: var(--base-line-height);
-  // color: var(--body-color);
-  // background-color: var(--body-bg);
+  font-weight: $--base-font-weight;
+  line-height: $--base-line-height;
+  // color: $--body-color;
+  // background-color: $--body-bg;
   margin: 0;
 }

@@ -1,8 +1,12 @@
 .c-global-header {
-  background-color: var(--color-nhs-blue);
-  background-image: radial-gradient(circle at center, var(--color-bright-blue) 0, var(--color-nhs-blue) 100%);
-  color: var(--color-white);
-  // padding-bottom: calc(var(--global-spacing-unit) * 29); //116px
-  padding-top: calc(var(--global-spacing-unit) * 14); //56px
-  padding-bottom: calc(var(--global-spacing-unit) * 14); //56px
+  background-color: $--color-nhs-blue;
+  background-image: radial-gradient(circle at center, $--color-bright-blue 0, $--color-nhs-blue 100%);
+  color: $--color-white;
+  padding-top: rem($--global-spacing-unit * 8); //32px
+  padding-bottom: rem($--global-spacing-unit * 8); //32px
+  padding-bottom: rem($--global-spacing-unit * 26); //104px
+}
+
+.c-global-header__logo {
+  margin-bottom: rem($--global-spacing-unit * 13);
 }

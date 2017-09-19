@@ -1,0 +1,16 @@
+.c-link {
+  color: $--color-nhs-blue;
+}
+.c-link--inverse {
+  color: $--color-white;
+}
+.c-link--arrow {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiP…AzMDIuMDg5MTE3IDY2NSI+PC9wb2x5Z29uPgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+);
+  background-position: center right;
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  padding-right: 32px;
+}
+.c-link--inverse.c-link--arrow {
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiP…4wODkxMTcgNjY1Ij48L3BvbHlnb24+DQogICAgICAgIDwvZz4NCiAgICA8L2c+DQo8L3N2Zz4=);
+}

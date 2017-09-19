@@ -1,0 +1,16 @@
+.c-campaign {
+  background: $--color-nhs-blue;
+  color: $--color-white;
+  margin-bottom: rem($--global-spacing-unit * 6);
+  padding: rem($--global-spacing-unit * 6);
+  display: flex;
+}
+
+.c-campaign__image {
+  min-width: 50%;
+  width: 50%;
+}
+
+.c-campaign__info {
+  margin-left: 26px;
+}

@@ -27,12 +27,12 @@ gulp.task('styles', () => {
     // Sass Compilation
     .pipe(sass({
       errLogToConsole: true
-    }))
+    })).on('error', sass.logError)
 
     // PostCSS tasks after Sass compilation
     .pipe(postcss([
       // autoprefixer({ browsers: ['> 5%', 'last 2 versions', 'ie > 7'] }),
-      require('postcss-cssnext'),
+      // require('postcss-cssnext'),
       require('cssnano')({
         preset: 'default'
       })

@@ -1,0 +1,13 @@
+.c-btn {
+  border-radius: $--global-spacing-unit;
+  border: 0;
+  font-size: 20px;
+  line-height: 1;
+  padding: 12px 24px;
+}
+.c-btn--primary {
+  background: #007F3B;
+  border-bottom: 4px solid #006747;
+  border-radius: 5px;
+  color: $--color-white;
+}

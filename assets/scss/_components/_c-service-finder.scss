@@ -1,0 +1,30 @@
+.c-service-finder {
+  // background-color: $--color-blue-10;
+}
+
+.c-service-finder__options {
+  padding: 0;
+  border: 0;
+}
+.c-service-finder__option {
+  display: block;
+  float: left;
+  padding: 16px 24px;
+  color: $--color-nhs-blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.c-service-finder__input {
+  display: none;
+}
+
+.c-service-finder__input:checked + .c-service-finder__option {
+  background-color: $--color-nhs-blue;
+  color: $--color-white;
+  text-decoration: none;
+}
+
+.c-service-finder__search {
+  background-color: $--color-blue-10;
+  padding: 32px 24px;
+}

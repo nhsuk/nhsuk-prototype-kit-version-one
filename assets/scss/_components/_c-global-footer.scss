@@ -1,17 +1,17 @@
 .c-global-footer__explore,
 .c-global-footer__meta {
-  padding: calc(var(--global-spacing-unit) * 4);
+  padding: ($--global-spacing-unit * 4);
 }
 
 .c-global-footer__explore {
-  background-color: var(--color-nhs-blue);
+  background-color: $--color-nhs-blue;
 }
 
 .c-global-footer__meta {
-  background-color: var(--color-grey-1);
+  background-color: $--color-grey-1;
 }
 
 .c-global-footer__copyright {
-  color: var(--color-grey-3);
+  color: $--color-grey-3;
   float: right;
 }
