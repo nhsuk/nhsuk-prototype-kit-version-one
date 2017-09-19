@@ -9,6 +9,10 @@
   font-size: 18px;
   padding: 18px;
   width: 80%;
+
+  &:focus {
+    // outline: $--global-spacing-unit solid $--color-focus;
+  }
 }
 
 .c-home-search__submit {

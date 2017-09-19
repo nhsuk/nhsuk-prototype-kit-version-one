@@ -1,0 +1,14 @@
+.o-service-search {
+  display: table;
+  margin-bottom: ($--global-spacing-unit * 4);
+  width: 100%;
+}
+
+.o-service-search__input {
+  display: table-cell;
+}
+
+.o-service-search__submit {
+  display: table-cell;
+  padding-left: ($--global-spacing-unit * 4);
+}

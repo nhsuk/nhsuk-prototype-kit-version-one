@@ -1,5 +1,6 @@
 .c-service-finder {
   // background-color: $--color-blue-10;
+  margin-bottom: ($--global-spacing-unit * 8);
 }
 
 .c-service-finder__options {
@@ -22,6 +23,19 @@
   background-color: $--color-nhs-blue;
   color: $--color-white;
   text-decoration: none;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    height: 20px;
+    width: 100%;
+    bottom: -20px;
+    left: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDEiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTQwLjc4NyAwbC0yMCAyMC0yMC0yMGg0MHoiIGZpbGw9IiMwMDVFQjgiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvc3ZnPg==");
+  }
 }
 
 .c-service-finder__search {

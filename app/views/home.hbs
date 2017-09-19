@@ -49,15 +49,19 @@
     </fieldset>
 
     <div class="c-service-finder__search">
-      <label for="find_service_search">Enter your location</label>
-      <input class="c-text-field" id="find_service_search" type="text" name="find_service_search">
-      <input class="c-btn c-btn--primary" type="submit" value="Find a service">
-      <div class="">
-        <button class="c-link" type="button">Use my location</button> - your browser will ask for permission
+      <label class="c-label" for="find_service_search">Enter your location</label>
+      <div class="o-service-search">
+        <div class="o-service-search__input">
+          <input class="c-text-field" id="find_service_search" type="text" name="find_service_search" placeholder="Enter a postcode or town name">
+        </div>
+        <div class="o-service-search__submit">
+          <input class="c-btn c-btn--primary" type="submit" value="Find a service">
+        </div>
+      </div>
+      <div>
+        <button class="c-button-link c-button-link--location" type="button">Use my location</button> - your browser will ask for permission
       </div>
     </div>
-
-
   </form>
 
   <div class="c-campaign">

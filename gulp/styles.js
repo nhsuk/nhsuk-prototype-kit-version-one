@@ -31,7 +31,7 @@ gulp.task('styles', () => {
 
     // PostCSS tasks after Sass compilation
     .pipe(postcss([
-      // autoprefixer({ browsers: ['> 5%', 'last 2 versions', 'ie > 7'] }),
+      require('autoprefixer')({ browsers: ['> 5%', 'last 2 versions', 'ie > 7'] }),
       // require('postcss-cssnext'),
       require('cssnano')({
         preset: 'default'
