@@ -25,7 +25,7 @@
   text-decoration: none;
   position: relative;
 
-  &:after {
+  &:after { /* stylelint-disable-line selector-max-specificity */
     content: '';
     position: absolute;
     height: 20px;
