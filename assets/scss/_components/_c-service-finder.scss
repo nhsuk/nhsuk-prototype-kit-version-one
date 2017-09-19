@@ -14,6 +14,11 @@
   color: $--color-nhs-blue;
   text-decoration: underline;
   cursor: pointer;
+
+  &:hover {
+    background-color: $--color-blue-10;
+    text-decoration: none;
+  }
 }
 .c-service-finder__input {
   display: none;
