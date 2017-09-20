@@ -9,4 +9,8 @@
 
 .c-global-header__logo {
   margin-bottom: rem($--global-spacing-unit * 13);
+
+  svg {
+    display: block;
+  }
 }
