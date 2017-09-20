@@ -11,7 +11,13 @@
   margin-right: ($--global-spacing-unit * 8);
 }
 
-.c-secondary-nav__link {
-  color: inherit;
+.c-secondary-nav__link:link,
+.c-secondary-nav__link:visited {
+  color: $--color-white;
   text-decoration: none;
+}
+.c-secondary-nav__link:hover,
+.c-secondary-nav__link:active {
+  color: $--color-grey-3;
+  text-decoration: underline;
 }
