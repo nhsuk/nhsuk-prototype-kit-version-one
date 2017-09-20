@@ -1,4 +1,4 @@
-<header class="c-global-header">
+<header class="c-global-header {{#isHomepage}}c-global-header--hasHero{{/isHomepage}}">
   <div class="o-wrapper">
     <div class="c-global-header__logo">
       <?xml version="1.0" encoding="UTF-8"?>
@@ -11,15 +11,17 @@
           </g>
       </svg>
     </div>
-    <div class="u-reading-width">
-      <p class="">
-        Welcome to the new NHS website. Search for health problems, medicines, NHS services, healthy living tips and more.
-      </p>
-      <div class="c-home-search">
-        <form action="https://nhs-admin.funnelback.co.uk/s/search.html" method="get">
-          <input class="c-home-search__input"><button class="c-home-search__submit">Search</button>
-        </form>
+    {{#isHomepage}}
+      <div class="c-hero u-reading-width">
+        <p class="c-hero__lede">
+          Welcome to the new NHS website. Search for health problems, medicines, NHS services, healthy living tips and more.
+        </p>
+        <div class="c-home-search">
+          <form action="https://nhs-admin.funnelback.co.uk/s/search.html" method="get">
+            <input class="c-home-search__input"><button class="c-home-search__submit">Search</button>
+          </form>
+        </div>
       </div>
-    </div>
+    {{/isHomepage}}
   </div>
 </header>
