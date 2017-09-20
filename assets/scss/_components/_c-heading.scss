@@ -7,7 +7,7 @@
 }
 
 .c-heading--md {
-  font-size: 24px;
+  @include font(medium)
 }
 
 .c-heading--sm {
@@ -15,6 +15,6 @@
 }
 
 .c-heading--underline {
-  border-bottom: 1px solid var(--color-grey-3);
-  padding-bottom: var(--global-spacing-unit);
+  border-bottom: 1px solid $--color-grey-3;
+  padding-bottom: $--global-spacing-unit;
 }

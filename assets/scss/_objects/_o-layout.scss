@@ -3,8 +3,8 @@
   padding: 0;
   list-style: none;
   box-sizing: border-box;
-  margin-right: calc(var(--layout-gutter) / -2);
-  margin-left: calc(var(--layout-gutter) / -2);
+  margin-right: rem($--layout-gutter / -2);
+  margin-left: rem($--layout-gutter / -2);
   width: 100%;
 }
 
@@ -13,8 +13,8 @@
   float: left;
   width: 100%;
   box-sizing: border-box;
-  padding-right: calc(var(--layout-gutter) / 2);
-  padding-left: calc(var(--layout-gutter) / 2);
+  padding-right: rem($--layout-gutter / 2);
+  padding-left: rem($--layout-gutter / 2);
 }
 
 @media only screen and (min-width : 720px) {

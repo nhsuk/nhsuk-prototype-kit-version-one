@@ -1,0 +1,16 @@
+.c-text-field {
+  // @include font(small);
+  font-size: 20px;
+  line-height: 1.5;
+  appearance: none;
+  border: 1px solid $--color-grey-2;
+  display: inline-block;
+  max-width: 460px;
+  padding: ($--global-spacing-unit * 2);
+  width: 100%;
+  border-radius: $--global-spacing-unit;
+
+  &:focus {
+    outline: $--global-spacing-unit solid $--color-focus;
+  }
+}

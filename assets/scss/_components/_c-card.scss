@@ -1,10 +1,10 @@
 .c-card {
-  background-color: var(--color-grey-5);
+  background-color: $--color-grey-5;
   border: #D6DBDE 1px solid;
   height: 100%;
-  margin-bottom: calc(var(--global-spacing-unit) * 8);
-  padding: calc(var(--global-spacing-unit) * 3);
-  padding-bottom: calc(var(--global-spacing-unit) * 13);
+  margin-bottom: ($--global-spacing-unit * 8);
+  padding: ($--global-spacing-unit * 3);
+  padding-bottom: ($--global-spacing-unit * 13);
   position: relative;
 }
 
@@ -13,7 +13,7 @@
 }
 
 .c-card__title {
-  border-bottom: var(--color-nhs-blue) var(--global-spacing-unit) solid;
-  margin-bottom: calc(var(--global-spacing-unit) * 3);
-  padding-bottom: calc(var(--global-spacing-unit) * 2);
+  border-bottom: $--color-nhs-blue $--global-spacing-unit solid;
+  margin-bottom: ($--global-spacing-unit * 3);
+  padding-bottom: ($--global-spacing-unit * 2);
 }
