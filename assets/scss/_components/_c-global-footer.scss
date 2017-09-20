@@ -1,0 +1,17 @@
+.c-global-footer__explore,
+.c-global-footer__meta {
+  padding: ($--global-spacing-unit * 4);
+}
+
+.c-global-footer__explore {
+  background-color: $--color-nhs-blue;
+}
+
+.c-global-footer__meta {
+  background-color: $--color-grey-1;
+}
+
+.c-global-footer__copyright {
+  color: $--color-grey-3;
+  float: right;
+}

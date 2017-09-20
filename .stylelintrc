@@ -1,0 +1,47 @@
+{
+  rules: {
+    indentation: 2,
+    max-nesting-depth: 2,
+    no-duplicate-selectors: true,
+    length-zero-no-unit: true,
+    no-descending-specificity: true,
+    property-case: 'lower',
+
+    number-leading-zero: 'never',
+    number-no-trailing-zeros: true,
+    number-max-precision: 4,
+
+    block-opening-brace-newline-after: 'always-multi-line',
+    block-opening-brace-space-before: 'always',
+    block-opening-brace-space-after: 'always-single-line',
+
+
+    # selector-max-specificity: '0,2,0',
+    selector-max-specificity: '0,3,0',
+    selector-max-id: 0,
+
+    selector-list-comma-newline-before: 'never-multi-line',
+    selector-list-comma-newline-after: 'always',
+    selector-list-comma-space-before: 'never',
+    # selector-list-comma-space-after: 'never',
+
+    declaration-empty-line-before: 'never',
+    # declaration-no-important: true,
+    declaration-bang-space-before: 'always',
+    declaration-bang-space-after: 'never',
+    declaration-colon-space-before: 'never',
+    declaration-colon-space-after: 'always',
+    declaration-colon-newline-after: 'always-multi-line',
+
+    declaration-block-no-shorthand-property-overrides: true,
+    declaration-block-semicolon-space-before: 'never',
+    declaration-block-semicolon-space-after: 'always-single-line',
+    declaration-block-semicolon-newline-before: 'never-multi-line',
+    declaration-block-semicolon-newline-after: 'always',
+    declaration-block-single-line-max-declarations: 1,
+    declaration-block-no-duplicate-properties: [ true, { ignore: ['consecutive-duplicates-with-different-values'] } ],
+
+    comment-whitespace-inside: always,
+    comment-no-empty: true
+  }
+}

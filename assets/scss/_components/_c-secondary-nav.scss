@@ -1,0 +1,23 @@
+.c-secondary-nav {
+  list-style: none;
+  padding-left: 0;
+  color: $--color-white;
+  float: left;
+}
+
+.c-secondary-nav__item {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: ($--global-spacing-unit * 8);
+}
+
+.c-secondary-nav__link:link,
+.c-secondary-nav__link:visited {
+  color: $--color-white;
+  text-decoration: none;
+}
+.c-secondary-nav__link:hover,
+.c-secondary-nav__link:active {
+  color: $--color-grey-3;
+  text-decoration: underline;
+}

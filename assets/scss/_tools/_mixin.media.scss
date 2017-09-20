@@ -1,0 +1,34 @@
+@mixin media(--size: false, --max-width: false, --min-width: false, --ignore-for-ie: false) {
+  --media-query: --layout-breakpoint-#{--size};
+
+  @if --media-query {
+    @media (min-width: $desktop-breakpoint) {
+      @content;
+    }
+  }
+  @else if $size == tablet {
+    @media (min-width: $tablet-breakpoint) {
+      @content;
+    }
+  }
+  @else if $size == mobile {
+    @media (max-width: $tablet-breakpoint - 1px) {
+      @content;
+    }
+  }
+  @else if $max-width != false {
+    @media (max-width: $max-width) {
+      @content;
+    }
+  }
+  @else if $min-width != false {
+    @media (min-width: $min-width) {
+      @content;
+    }
+  }
+  @else {
+    @media (min-width: $size) {
+      @content
+    }
+  }
+}
