@@ -20,6 +20,7 @@
     ]
   },
   "dependencies": {
+    "@google/maps": "^0.4.3",
     "basic-auth": "^1.1.0",
     "body-parser": "~1.17.1",
     "chalk": "^2.1.0",
@@ -32,6 +33,7 @@
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.5",
     "express-validator": "^4.1.1",
+    "gps-distance": "0.0.4",
     "marked": "^0.3.6",
     "minimist": "^1.2.0",
     "morgan": "~1.8.1",

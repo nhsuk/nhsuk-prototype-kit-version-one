@@ -1,0 +1,46 @@
+<h1>Find local NHS services</h1>
+<form>
+  <label for="find_service_type">NHS service</label>
+  <select id="find_service_type" name="find_service_type">
+    <option value="pharmacy">Pharmacy</option>
+    <option value="dentist">Dentist</option>
+    <option value="optician">Optician</option>
+    <option value="doctor">GP</option>
+  </select>
+  <label for="find_service_search">Your location</label>
+  <input type="text" id="find_service_search" name="find_service_search"
+         value="{{find_service_search}}">
+  <input type="submit" value="Find services">
+</form>
+<p><strong>{{resultCount}}</strong> {{resultDescription}}</p>
+{{#if resultCount}}
+<div id="results">
+  {{#results}}
+  <div class="result">
+    <p class="who">
+      <span class="name">{{name}}</span>
+      {{#rating}}<span class="rating rating-{{.}}">{{.}}</span>{{/rating}}
+      <span class="address">{{address}}</span>
+      <span class="phone">{{phone}}</span>
+    </p>
+    <p class="where">
+      <span class="distance">{{distance}} away</span>
+    </p>
+    <p class="when">
+      {{#hours}}
+        {{#if open_now}}
+        <span class="open">OPEN</span>
+          {{#closes}}<span class="closes{{#soon}} soon{{/soon}}">{{time}}</span>{{/closes}}
+        {{else}}
+        <span class="closed">CLOSED</span>
+          {{#opens}}<span class="opens{{#soon}} soon{{/soon}}">{{time}}</span>{{/opens}}
+        {{/if}}
+      {{/hours}}
+    </p>
+    <p class="how">
+      <a class="directions">Get directions</a>
+    </p>
+  </div>
+  {{/results}}
+</div>
+{{/if}}
