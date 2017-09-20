@@ -1,4 +1,10 @@
-a {
-  color: black;
-  // text-decoration: var(--link-decoration);
+a:link {
+  color: $--color-blue;
+}
+a:visited {
+  color: $--color-dark-blue;
+}
+a:hover,
+a:active {
+  color: $--color-link-hover;
 }
