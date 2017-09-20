@@ -30,6 +30,7 @@ function placeSearch (input) {
 
   return maps.placesNearby(query).asPromise()
     .then(response => response.json.results)
+    .then(places => places.filter(place => !place.permanently_closed))
 }
 
 function placeDetails (places) {
