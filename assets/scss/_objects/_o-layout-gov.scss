@@ -97,7 +97,7 @@ $desktop-breakpoint: 769px !default;
 // Allow an ID here, this is useful as it matches the GOV.UK template skiplink
 // scss-lint:disable IdSelector
 
-.content {
+.o-site-width {
   max-width: $--layout-site-width;
   margin: 0 $--layout-gutter-half;
   @include media(tablet) {
@@ -106,16 +106,13 @@ $desktop-breakpoint: 769px !default;
   @include media($min-width: ($--layout-site-width + $--layout-gutter * 2)) {
     margin: 0 auto;
   }
-  padding-bottom: $--layout-gutter;
-  @include media(desktop) {
-    padding-bottom: $--layout-gutter * 3;
-  }
   &:after {
     content: "";
     display: block;
     clear: both;
   }
 }
+
 // Grid layout
 // ==========================================================================
 // Usage:

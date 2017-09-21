@@ -1,29 +1,23 @@
-<main class="o-wrapper">
-
   {{#> components/content-bridge}}
-    <div class="o-layout u-clearfix">
-      <div class="o-layout__item u-width-1/2">
+    <div class="grid-row">
+      <div class="column-one-half">
         <h2 class="c-heading c-heading--md c-heading--underline">Health A-Z</h2>
-
         <ul class="c-list-bullet">
-            <li>symptoms</li>
+            <li>symptoms and conditions</li>
             <li>when to seek help</li>
             <li>treatments</li>
         </ul>
-
         <p>
             <a href="http://www.nhs.uk/Conditions/Pages/hub.aspx" class="c-link c-link--arrow">Browse the A-Z</a>
         </p>
       </div>
-      <div class="o-layout__item u-width-1/2">
+      <div class="column-one-half">
         <h2 class="c-heading c-heading--md c-heading--underline">Understand your medicines</h2>
-
         <ul class="c-list-bullet">
             <li>side effects</li>
             <li>how they work</li>
             <li>how to take them</li>
         </ul>
-
         <p>
             <a href="http://beta.nhs.uk/medicines" class="c-link c-link--arrow">Find a medicine</a>
         </p>
@@ -64,12 +58,13 @@
     </div>
   </form>
 
-  <div class="c-campaign">
-    <div class="c-campaign__image">
-        <img src="https://beta.nhs.uk/static/beta/images/expo2017/campaigns/supermeals.jpg" alt="Change4Life">
-    </div>
 
-    <div class="c-campaign__info">
+  <div class="c-campaign">
+    <div class="grid-row">
+      <div class="column-one-half c-campaign__image">
+        <img src="https://beta.nhs.uk/static/beta/images/expo2017/campaigns/supermeals.jpg" alt="Change4Life supermeals">
+      </div>
+      <div class="column-one-half c-campaign__content">
         <h2 class="c-heading c-heading--md">Fun ideas to help your kids stay healthy</h2>
         <p>
             Recipes, activities and offers to help your family make healthier choices
@@ -77,13 +72,12 @@
         <p>
             <a href="https://www.nhs.uk/change4life-beta/cards" class="c-link c-link--inverse c-link--arrow">Join Change4Life</a>
         </p>
+      </div>
     </div>
-
-    <span class="ie-fix-clear"></span>
   </div>
 
-  <div class="o-layout u-clearfix">
-    <div class="o-layout__item u-width-1/3">
+  <div class="flex-container">
+    <div class="flex-item flex-item--one-third">
       {{> components/card
         title="BMI calculator"
         description="Use the BMI calculator to find out if you or your child's weight is healthy."
@@ -93,7 +87,7 @@
         image_alt_text="BMI calculator"
       }}
     </div>
-    <div class="o-layout__item u-width-1/3">
+    <div class="flex-item flex-item--one-third">
       {{> components/card
         title="Apps library"
         description="Find digital tools to help you manage and improve your health."
@@ -103,7 +97,7 @@
         image_alt_text="Apps library"
       }}
     </div>
-    <div class="o-layout__item u-width-1/3">
+    <div class="flex-item flex-item--one-third">
       {{> components/card
         title="NHS jobs"
         description="Find out ways to join the NHS."
@@ -114,5 +108,3 @@
       }}
     </div>
   </div>
-
-</main>

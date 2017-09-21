@@ -3,18 +3,17 @@
   color: $--color-white;
   margin-bottom: $--global-spacing-unit * 10;
   padding: $--global-spacing-unit * 6;
-  display: flex;
 }
 
 .c-campaign__image {
-  min-width: 50%;
-  width: 50%;
-
   img {
     display: block;
   }
 }
 
-.c-campaign__info {
-  margin-left: 26px;
+.c-campaign__content {
+  margin-top: 24px;
+  @include media(tablet) {
+    margin-top: 0;
+  }
 }
