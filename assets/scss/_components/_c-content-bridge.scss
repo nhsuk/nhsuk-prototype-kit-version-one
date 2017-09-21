@@ -1,11 +1,11 @@
 .c-content-bridge {
   background-color: $--color-blue-10;
+  margin-top: ($--global-spacing-unit * -19);
   margin-right: ($--layout-gutter * -1);
   margin-bottom: ($--global-spacing-unit * 10);
   margin-left: ($--layout-gutter * -1);
   padding: $--layout-gutter;
   box-sizing: border-box;
-  margin-top: -52px;
 
 
   &:after {

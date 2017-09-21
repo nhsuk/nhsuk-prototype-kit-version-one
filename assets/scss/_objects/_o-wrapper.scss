@@ -1,12 +1,12 @@
 .o-wrapper {
-  max-width: rem($--layout-site-width + ($--layout-gutter * 2));
-  padding-right: rem($--layout-gutter / 2);
-  padding-left: rem($--layout-gutter / 2);
+  max-width: $--layout-site-width + ($--layout-gutter * 2);
+  padding-right: $--layout-gutter / 2;
+  padding-left: $--layout-gutter / 2;
 
   @media only screen and (min-width : 720px) {
     margin-right: auto;
     margin-left: auto;
-    padding-right: rem($--layout-gutter);
-    padding-left: rem($--layout-gutter);
+    padding-right: $--layout-gutter;
+    padding-left: $--layout-gutter;
   }
 }

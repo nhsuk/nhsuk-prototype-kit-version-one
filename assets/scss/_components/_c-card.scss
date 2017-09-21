@@ -2,9 +2,8 @@
   background-color: $--color-grey-5;
   border: #D6DBDE 1px solid;
   height: 100%;
-  margin-bottom: ($--global-spacing-unit * 8);
+  margin-bottom: ($--global-spacing-unit * 10);
   padding: ($--global-spacing-unit * 3);
-  padding-bottom: ($--global-spacing-unit * 13);
   position: relative;
 }
 
@@ -16,4 +15,5 @@
   border-bottom: $--color-nhs-blue $--global-spacing-unit solid;
   margin-bottom: ($--global-spacing-unit * 3);
   padding-bottom: ($--global-spacing-unit * 2);
+  padding-top: $--global-spacing-unit;
 }
