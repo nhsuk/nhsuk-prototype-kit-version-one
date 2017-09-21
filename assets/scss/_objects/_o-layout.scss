@@ -3,8 +3,8 @@
   padding: 0;
   list-style: none;
   box-sizing: border-box;
-  margin-right: rem($--layout-gutter / -2);
-  margin-left: rem($--layout-gutter / -2);
+  margin-right: ($--layout-gutter / -2);
+  margin-left: ($--layout-gutter / -2);
   width: 100%;
 }
 
@@ -13,8 +13,8 @@
   float: left;
   width: 100%;
   box-sizing: border-box;
-  padding-right: rem($--layout-gutter / 2);
-  padding-left: rem($--layout-gutter / 2);
+  padding-right: ($--layout-gutter / 2);
+  padding-left: ($--layout-gutter / 2);
 }
 
 @media only screen and (min-width : 720px) {

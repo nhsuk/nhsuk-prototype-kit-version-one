@@ -1,6 +1,5 @@
 .c-service-finder {
-  // background-color: $--color-blue-10;
-  margin-bottom: ($--global-spacing-unit * 8);
+  margin-bottom: ($--global-spacing-unit * 10);
 }
 
 .c-service-finder__options {
@@ -46,5 +45,8 @@
 
 .c-service-finder__search {
   background-color: $--color-blue-10;
-  padding: 32px 24px;
+  padding-top: ($--global-spacing-unit * 8);
+  padding-right: ($--global-spacing-unit * 6);
+  padding-bottom: ($--global-spacing-unit * 6);
+  padding-left: ($--global-spacing-unit * 6);
 }
