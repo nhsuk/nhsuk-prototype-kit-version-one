@@ -12,8 +12,21 @@
   <input type="submit" value="Find services">
 </form>
 <p><strong>{{resultCount}}</strong> {{resultDescription}}</p>
-{{#if resultCount}}
 <div id="results">
+{{#if askToSaveLocation}}
+  <div id="save-location" data-user-location="{{find_service_search}}">
+    <p>
+      <strong>Save time and remember this location?</strong>
+      <a class="refuse-save-location">&#x24E7;</a>
+    </p>
+    <p>
+      <button type="button" class="button" id="save-location-button">Save</button>
+      or
+      <a class="refuse-save-location">close</a>
+    </p>
+  </div>
+{{/if}}
+{{#if resultCount}}
   {{#results}}
   <div class="result">
     <p class="who">
@@ -41,5 +54,36 @@
     </p>
   </div>
   {{/results}}
-</div>
 {{/if}}
+</div>
+
+<script>
+var elSaveLocation = document.getElementById('save-location')
+
+document.getElementById('save-location-button').addEventListener('click', saveLocation)
+Array.prototype.forEach.call(
+  document.querySelectorAll('.refuse-save-location'),
+  function (el) {
+    el.addEventListener('click', refuseSaveLocation)
+  }
+)
+
+function removeSaveLocation () {
+  elSaveLocation.parentNode.removeChild(elSaveLocation)
+}
+
+function refuseSaveLocation () {
+  document.cookie = 'saveRefused=true;path=/'
+  removeSaveLocation()
+}
+
+function saveLocation () {
+  var expires = new Date()
+  expires.setDate(expires.getDate() + 7)
+  document.cookie = 'savedLocation=' +
+                    encodeURIComponent(elSaveLocation.getAttribute('data-user-location')) +
+                    ';path=/;expires=' +
+                    expires.toUTCString()
+  removeSaveLocation()
+}
+</script>

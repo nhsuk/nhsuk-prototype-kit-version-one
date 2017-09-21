@@ -96,6 +96,9 @@ module.exports = function (input, req) {
     return type
   })
 
+  input.savedLocation = req.cookies.savedLocation
+  input.askToSaveLocation = !req.cookies.savedLocation && !req.cookies.saveRefused
+
   return geocodeAddress(input.find_service_search)
     .then(extractGeocodedLocationFromResult)
     .then(location => {
