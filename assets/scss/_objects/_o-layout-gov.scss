@@ -45,8 +45,13 @@ $desktop-breakpoint: 769px !default;
 //
 // Usage:
 //
-// .hero-image-container {
+// .hero {
 //   @extend %outdent-to-full-width;
+//   padding: $--layout-gutter-half;
+//   @include media(tablet) {
+//     padding: $--layout-gutter;
+//   }
+//   background-color: green;
 // }
 %outdent-to-full-width {
   margin-left: -$--layout-gutter-half;
@@ -55,15 +60,6 @@ $desktop-breakpoint: 769px !default;
     margin-left: -$--layout-gutter;
     margin-right: -$--layout-gutter;
   }
-}
-
-.hero {
-  @extend %outdent-to-full-width;
-  padding: $--layout-gutter-half;
-  @include media(tablet) {
-    padding: $--layout-gutter;
-  }
-  background-color: green;
 }
 
 // A mixin for a grid column
