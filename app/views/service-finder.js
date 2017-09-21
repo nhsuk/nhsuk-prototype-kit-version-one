@@ -83,6 +83,19 @@ module.exports = function (input, req) {
     geocodingFailed: false
   }
 
+  // build the dropdown list of service types and mark the one in use
+  input.find_service_types = [
+    { value: 'pharmacy', label: 'Pharmacy' },
+    { value: 'dentist', label: 'Dentist' },
+    { value: 'optician', label: 'Optician' },
+    { value: 'doctor', label: 'GP' }
+  ].map(type => {
+    if (input.find_service_type === type.value) {
+      type.isSelected = true
+    }
+    return type
+  })
+
   return geocodeAddress(input.find_service_search)
     .then(extractGeocodedLocationFromResult)
     .then(location => {

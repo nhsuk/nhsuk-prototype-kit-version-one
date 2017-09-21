@@ -2,10 +2,9 @@
 <form>
   <label for="find_service_type">NHS service</label>
   <select id="find_service_type" name="find_service_type">
-    <option value="pharmacy">Pharmacy</option>
-    <option value="dentist">Dentist</option>
-    <option value="optician">Optician</option>
-    <option value="doctor">GP</option>
+    {{#find_service_types}}
+      <option value="{{value}}"{{#if isSelected}} selected{{/if}}>{{label}}</option>
+    {{/find_service_types}}
   </select>
   <label for="find_service_search">Your location</label>
   <input type="text" id="find_service_search" name="find_service_search"
