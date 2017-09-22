@@ -54,7 +54,9 @@
         </div>
       </div>
       <div>
-        <button class="c-button-link c-button-link--location" type="button">Use my location</button> - your browser will ask for permission
+        <button id="use-my-location" class="c-button-link c-button-link--location" type="button">Use my location</button> - your browser will ask for permission
+        <input type="hidden" id="latitude" name="lat" disabled>
+        <input type="hidden" id="longitude" name="long" disabled>
       </div>
     </div>
   </form>
@@ -109,3 +111,42 @@
       }}
     </div>
   </div>
+
+<script>
+var elLatitude = document.getElementById('latitude')
+var elLongitude = document.getElementById('longitude')
+var elManualLocation = document.getElementById('find_service_search')
+
+// set up the "Use my location" button
+document.getElementById('use-my-location').addEventListener('click', useMyLocation)
+
+// set up a change handler on the manual location to disable automatic
+// location if a new manual location is entered
+elManualLocation.addEventListener('change', unsetMyLocation)
+
+function useMyLocation () {
+  if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition(setMyLocation)
+  }
+}
+
+function setMyLocation (position) {
+  elLatitude.value = position.coords.latitude
+  elLatitude.disabled = false
+
+  elLongitude.value = position.coords.longitude
+  elLongitude.disabled = false
+
+  // use the manual location input to indicate that the user's current location
+  // is being used, and
+  elManualLocation.value = 'my location'
+}
+
+function unsetMyLocation () {
+  elLatitude.value = ''
+  elLatitude.disabled = true
+
+  elLongitude.value = ''
+  elLongitude.disabled = true
+}
+</script>

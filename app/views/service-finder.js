@@ -96,17 +96,31 @@ module.exports = function (input, req) {
     return type
   })
 
+  input.automaticLocation = input.lat && input.long
   input.savedLocation = req.cookies.savedLocation
-  input.askToSaveLocation = !req.cookies.savedLocation && !req.cookies.saveRefused
+  input.askToSaveLocation = !input.automaticLocation &&
+                            !req.cookies.savedLocation &&
+                            !req.cookies.saveRefused
 
-  return geocodeAddress(input.find_service_search)
-    .then(extractGeocodedLocationFromResult)
-    .then(location => {
-      console.log('Geocoding returned', location)
-      input.lat = location.lat
-      input.long = location.lng
-      return input
-    })
+  // if the lat and long are already provided, there's no need to
+  // geocode the search term
+  const locationProvider = (input.lat && input.long)
+    ? Promise.resolve(input)
+        .then(input => {
+          input.lat = parseFloat(input.lat)
+          input.long = parseFloat(input.long)
+          return input
+        })
+    : geocodeAddress(input.find_service_search)
+        .then(extractGeocodedLocationFromResult)
+        .then(location => {
+          console.log('Geocoding returned', location)
+          input.lat = location.lat
+          input.long = location.lng
+          return input
+        })
+
+  return locationProvider
     .then(placeSearch)
     .then(placeDetails)
     .then(places => computeDistances(places, input))

@@ -10,6 +10,10 @@
   <input type="text" id="find_service_search" name="find_service_search"
          value="{{find_service_search}}">
   <input type="submit" value="Find services">
+  {{#if automaticLocation}}
+  <input type="hidden" name="lat" value="{{lat}}">
+  <input type="hidden" name="long" value="{{long}}">
+  {{/if}}
 </form>
 <p><strong>{{resultCount}}</strong> {{resultDescription}}</p>
 <div id="results">
