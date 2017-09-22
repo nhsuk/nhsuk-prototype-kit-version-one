@@ -1,0 +1,65 @@
+.c-location-result {
+  border-bottom: 1px solid $--color-grey-4;
+  padding: ($--global-spacing-unit * 3) ($--global-spacing-unit * 6);
+}
+
+.c-location-result__title {
+  font-size: 22px;
+
+  a {
+    text-decoration: none;
+  }
+}
+.c-location-result__address {
+}
+.c-location-result__telephone {
+}
+
+.c-location-result__result-wrapper {
+  float: left;
+  width: 66.66%;
+}
+
+.c-location-result__status-wrapper {
+  float: left;
+  width: 33.33%;
+  text-align: right;
+}
+
+.c-location-result__status {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.c-location-result__status--isOpen {
+  color: $--color-green;
+}
+
+.c-location-result__status--isClosed {
+  color: $--color-red;
+}
+//  Footer
+.c-location-result__distance-wrapper {
+  clear: both;
+  padding-top: $--global-spacing-unit *2;
+}
+
+.c-location-result__directions,
+.c-location-result__distance {
+  display: block;
+  float: left;
+  width: 50%;
+}
+
+.c-location-result__distance {
+    color: $--color-grey-2;
+}
+
+.c-location-result__directions {
+  text-align: right;
+}
+
+.c-location-result__meta-status {
+  font-size: 16px;
+  color: #768692;
+}

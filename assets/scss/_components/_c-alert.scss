@@ -1,0 +1,37 @@
+.c-alert {
+  position: relative;
+  background-color: #FEF9CC;
+  padding: 16px 26px;
+}
+.c-alert__dissmiss {
+  position: absolute;
+  font-size: 16px;
+  right: 26px;
+  top: 16px;
+  text-decoration: none;
+  color: red;
+
+  svg {
+    top: 2px;
+    position: relative;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    stroke-width: 0;
+    stroke: currentColor;
+    fill: currentColor;
+  }
+}
+.c-alert__title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: ($--global-spacing-unit * 2);
+}
+.c-alert__decription {
+  font-size: 16px;
+  margin-bottom: ($--global-spacing-unit * 5);
+}
+.c-alert__action {
+  font-size: 16px;
+  color: $--color-grey-2;
+}

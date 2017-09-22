@@ -3,9 +3,9 @@
       <div class="column-one-half">
         <h2 class="c-heading c-heading--md c-heading--underline">Health A-Z</h2>
         <ul class="c-list-bullet">
-            <li>symptoms and conditions</li>
-            <li>when to seek help</li>
-            <li>treatments</li>
+            <li>Symptoms and conditions</li>
+            <li>When to seek help</li>
+            <li>Treatments</li>
         </ul>
         <p>
             <a href="http://www.nhs.uk/Conditions/Pages/hub.aspx" class="c-link c-link--arrow">Browse the A-Z</a>
@@ -14,9 +14,9 @@
       <div class="column-one-half">
         <h2 class="c-heading c-heading--md c-heading--underline">Understand your medicines</h2>
         <ul class="c-list-bullet">
-            <li>side effects</li>
-            <li>how they work</li>
-            <li>how to take them</li>
+            <li>Side effects</li>
+            <li>How they work</li>
+            <li>How to take them</li>
         </ul>
         <p>
             <a href="http://beta.nhs.uk/medicines" class="c-link c-link--arrow">Find a medicine</a>
@@ -24,6 +24,96 @@
       </div>
     </div>
   {{/components/content-bridge}}
+
+  <div class="c-faceted-search">
+    <div class="grid-row">
+      <form>
+        <fieldset>
+          <div class="column-one-quarter c-faceted-search__facet">
+            <label class="c-label" for="find_service_type">NHS service</label>
+            <select class="c-text-field" id="find_service_type" name="find_service_type">
+              <option value="pharmacy">Pharmacy</option>
+              <option value="dentist">Dentist</option>
+              <option value="optician">Optician</option>
+              <option value="doctor">GP</option>
+            </select>
+          </div>
+          <div class="column-one-half c-faceted-search__input">
+            <label class="c-label" for="find_service_search">Your location</label>
+            <input class="c-text-field" id="find_service_search" name="find_service_search" value="bristol" type="text">
+          </div>
+          <div class="column-one-quarter c-faceted-search__submit">
+            <input class="c-btn c-btn--primary" value="Find services" type="submit">
+          </div>
+        </fieldset>
+      </form>
+    </div>
+  </div>
+  <h3 class="c-result-number">5 pharmacies within 2 miles of this location</h3>
+  <div class="grid-row">
+    <div class="column-two-thirds">
+        {{> components/alert
+          id="alert"
+          title="Save time and remember this location?"
+          description="Sell value lorem lean startup ipsum product acquihire technical."
+          link_text="Save this location"
+        }}
+
+        {{> components/location-result
+          title="Superdrug"
+          title_url="#"
+          address="39/43 Broadmead, Bristol BS1 3EU"
+          telephone="0117 927 9928"
+          status="Open"
+          meta_status="Closes at 5:30pm"
+          distance="0.2 miles away"
+          distance_url="#"
+        }}
+        {{> components/location-result
+          title="Superdrug"
+          title_url="#"
+          address="39/43 Broadmead, Bristol BS1 3EU"
+          telephone="0117 927 9928"
+          status="Open"
+          meta_status="Closes at 5:30pm"
+          distance="0.2 miles away"
+          distance_url="#"
+        }}
+        {{> components/location-result
+          title="Superdrug"
+          title_url="#"
+          address="39/43 Broadmead, Bristol BS1 3EU"
+          telephone="0117 927 9928"
+          status="Open"
+          meta_status="Closes at 5:30pm"
+          distance="0.2 miles away"
+          distance_url="#"
+        }}
+        {{> components/location-result
+          title="Superdrug"
+          title_url="#"
+          address="39/43 Broadmead, Bristol BS1 3EU"
+          telephone="0117 927 9928"
+          status="Open"
+          meta_status="Closes at 5:30pm"
+          distance="0.2 miles away"
+          distance_url="#"
+        }}
+    </div>
+
+    <div class="column-one-third">
+      <!-- IGNORE THIS IT'S JUST TO GIVE ME CONTEXT -->
+      <div class="mapouter">
+          <div class="gmap_canvas">
+            <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Bristol%2C%20GB&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+            <style>
+            .mapouter{overflow:hidden;height:500px;width:100%;}
+            .gmap_canvas {background:none!important;height:500px;width:600px;}
+            </style>
+        </div>
+        <!-- END IGNORE -->
+    </div>
+  </div>
 
   <form class="c-service-finder">
     <fieldset class="c-service-finder__options">
@@ -34,9 +124,6 @@
 
       <input class="c-service-finder__input" type="radio" id="find_dentist" name="find_service_type">
       <label class="c-service-finder__option" for="find_dentist">Find a dentist</label>
-
-      <input class="c-service-finder__input" type="radio" id="find_optician" name="find_service_type">
-      <label class="c-service-finder__option" for="find_optician">Find a optician</label>
 
       <input class="c-service-finder__input" type="radio" id="find_gp" name="find_service_type">
       <label class="c-service-finder__option" for="find_gp">Find a GP</label>
@@ -53,7 +140,7 @@
         </div>
       </div>
       <div>
-        <button class="c-button-link c-button-link--location" type="button">Use my location</button> - your browser will ask for permission
+        <button class="c-button-link c-button-link--location" type="button">Use my location</button>
       </div>
     </div>
   </form>
