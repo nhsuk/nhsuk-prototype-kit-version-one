@@ -8,7 +8,6 @@ const maps = require('@google/maps').createClient({
 const PLURALS = {
   pharmacy: 'pharmacies',
   dentist: 'dentists',
-  optician: 'opticians',
   doctor: 'doctors'
 }
 
@@ -98,7 +97,7 @@ function formatTime (now, time) {
 
 function computeOpeningHours (openingHours = {}, now) {
   const hours = {
-    open_now: openingHours.open_now
+    status: openingHours.open_now ? 'Open' : 'Closed'
   }
 
   if (openingHours.periods) {
@@ -110,20 +109,16 @@ function computeOpeningHours (openingHours = {}, now) {
       let closeTime = findNextCloseTimeOnDay(openingHours.periods, currentDay, currentTime)
       if (closeTime) {
         // closes later today
-        hours.closes = {
-          time: `Closes ${formatTime(now, closeTime)}`,
-          soon: isSoon(now, closeTime, currentDay)
-        }
+        hours.meta_status = `Closes ${formatTime(now, closeTime)}`
+        // soon: isSoon(now, closeTime, currentDay)
       } else {
         closeTime = findNextCloseTimeOnDay(openingHours.periods, (currentDay + 1) % 7, '')
         if (closeTime) {
           // closes some time tomorrow
-          hours.closes = {
-            time: closeTime === '0000'
-                  ? `Closes midnight`
-                  : `Closes ${formatTime(now, closeTime)} tomorrow`,
-            soon: isSoon(now, closeTime, (currentDay + 1) % 7)
-          }
+          hours.meta_status = closeTime === '0000'
+            ? `Closes midnight`
+            : `Closes ${formatTime(now, closeTime)} tomorrow`
+          // soon: isSoon(now, closeTime, (currentDay + 1) % 7)
         }
       }
     } else {
@@ -131,20 +126,16 @@ function computeOpeningHours (openingHours = {}, now) {
       let openTime = findNextOpenTimeOnDay(openingHours.periods, currentDay, currentTime)
       if (openTime) {
         // opens later today
-        hours.opens = {
-          time: `Opens ${formatTime(now, openTime)}`,
-          soon: isSoon(now, openTime, currentDay)
-        }
+        hours.meta_status = `Opens ${formatTime(now, openTime)}`
+        // soon: isSoon(now, openTime, currentDay)
       } else {
         openTime = findNextOpenTimeOnDay(openingHours.periods, (currentDay + 1) % 7, '')
         if (openTime) {
           // opens some time tomorrow
-          hours.opens = {
-            time: openTime === '0000'
-                  ? `Opens midnight`
-                  : `Opens ${formatTime(now, openTime)} tomorrow`,
-            soon: isSoon(now, openTime, (currentDay + 1) % 7)
-          }
+          hours.meta_status = openTime === '0000'
+            ? `Opens midnight`
+            : `Opens ${formatTime(now, openTime)} tomorrow`
+          // soon: isSoon(now, openTime, (currentDay + 1) % 7)
         }
       }
     }
@@ -162,7 +153,7 @@ function computeDistanceInMiles (input, place) {
 function computeDistances (places, input) {
   places.forEach(place => {
     const placeDistance = computeDistanceInMiles(input, place).toFixed(1)
-    place.distance = `${placeDistance} miles`
+    place.distance = `${placeDistance} miles away`
   })
   return places
 }
@@ -177,7 +168,6 @@ module.exports = function (input, req) {
   input.find_service_types = [
     { value: 'pharmacy', label: 'Pharmacy' },
     { value: 'dentist', label: 'Dentist' },
-    { value: 'optician', label: 'Optician' },
     { value: 'doctor', label: 'GP' }
   ].map(type => {
     if (input.find_service_type === type.value) {
