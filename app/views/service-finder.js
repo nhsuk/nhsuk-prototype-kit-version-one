@@ -1,4 +1,5 @@
 const distance = require('gps-distance')
+const moment = require('moment-timezone')
 const maps = require('@google/maps').createClient({
   key: process.env.GOOGLE_MAPS_API_KEY,
   Promise: Promise
@@ -10,6 +11,8 @@ const PLURALS = {
   optician: 'opticians',
   doctor: 'doctors'
 }
+
+const SOON_IN_MILLISECONDS = 2 * 60 * 60 * 1000
 
 function geocodeAddress (address) {
   return maps.geocode({address, region: 'uk'}).asPromise()
@@ -34,14 +37,16 @@ function placeSearch (input) {
 }
 
 function placeDetails (places) {
+  const now = moment().tz('Europe/London').seconds(0).milliseconds(0)
+
   return Promise.all(places.map(place =>
     maps.place({placeid: place.place_id}).asPromise()
       .then(response => response.json.result)
-      .then(transformPlaceDetailsForTemplate)
+      .then(details => transformPlaceDetailsForTemplate(details, now))
   ))
 }
 
-function transformPlaceDetailsForTemplate (details) {
+function transformPlaceDetailsForTemplate (details, now) {
   const transformed = {
     id: details.id,
     place_id: details.place_id,
@@ -50,7 +55,7 @@ function transformPlaceDetailsForTemplate (details) {
     phone: details.formatted_phone_number,
     rating: details.rating,
     geometry: details.geometry,
-    hours: computeOpeningHours(details.opening_hours)
+    hours: computeOpeningHours(details.opening_hours, now)
   }
   return transformed
 }
@@ -59,8 +64,93 @@ function reformatAddress (address) {
   return address.replace(/, (UK|United Kingdom)$/, '')
 }
 
-function computeOpeningHours (openingHours) {
-  return openingHours
+function findNextCloseTimeOnDay (periods, day, time) {
+  const match = periods.find(
+    period => period.close && period.close.day === day && period.close.time > time
+  )
+
+  return match && match.close.time
+}
+
+function findNextOpenTimeOnDay (periods, day, time) {
+  const match = periods.find(
+    period => period.open && period.open.day === day && period.open.time > time
+  )
+
+  return match && match.open.time
+}
+
+function isSoon (now, time, day) {
+  return moment(now)
+    .weekday(day)
+    .hour(+time.substr(0, 2))
+    .minute(+time.substr(2, 2))
+    .diff(now) < SOON_IN_MILLISECONDS
+}
+
+function formatTime (now, time) {
+  return moment(now)
+    .hour(+time.substr(0, 2))
+    .minute(+time.substr(2, 2))
+    .format('LT')
+    .replace(':00', '')
+}
+
+function computeOpeningHours (openingHours = {}, now) {
+  const hours = {
+    open_now: openingHours.open_now
+  }
+
+  if (openingHours.periods) {
+    const currentDay = now.weekday()
+    const currentTime = now.format('HHmm')
+
+    if (openingHours.open_now) {
+      // does it close today or tomorrow?
+      let closeTime = findNextCloseTimeOnDay(openingHours.periods, currentDay, currentTime)
+      if (closeTime) {
+        // closes later today
+        hours.closes = {
+          time: `Closes ${formatTime(now, closeTime)}`,
+          soon: isSoon(now, closeTime, currentDay)
+        }
+      } else {
+        closeTime = findNextCloseTimeOnDay(openingHours.periods, (currentDay + 1) % 7, '')
+        if (closeTime) {
+          // closes some time tomorrow
+          hours.closes = {
+            time: closeTime === '0000'
+                  ? `Closes midnight`
+                  : `Closes ${formatTime(now, closeTime)} tomorrow`,
+            soon: isSoon(now, closeTime, (currentDay + 1) % 7)
+          }
+        }
+      }
+    } else {
+      // does it open today or tomorrow?
+      let openTime = findNextOpenTimeOnDay(openingHours.periods, currentDay, currentTime)
+      if (openTime) {
+        // opens later today
+        hours.opens = {
+          time: `Opens ${formatTime(now, openTime)}`,
+          soon: isSoon(now, openTime, currentDay)
+        }
+      } else {
+        openTime = findNextOpenTimeOnDay(openingHours.periods, (currentDay + 1) % 7, '')
+        if (openTime) {
+          // opens some time tomorrow
+          hours.opens = {
+            time: openTime === '0000'
+                  ? `Opens midnight`
+                  : `Opens ${formatTime(now, openTime)} tomorrow`,
+            soon: isSoon(now, openTime, (currentDay + 1) % 7)
+          }
+        }
+      }
+    }
+  }
+
+  return hours
 }
 
 function computeDistanceInMiles (input, place) {

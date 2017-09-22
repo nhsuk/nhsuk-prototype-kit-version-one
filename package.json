@@ -36,6 +36,7 @@
     "gps-distance": "0.0.4",
     "marked": "^0.3.6",
     "minimist": "^1.2.0",
+    "moment-timezone": "^0.5.13",
     "morgan": "~1.8.1",
     "node-fetch": "^1.7.3",
     "pa11y-ci": "^1.2.0",
