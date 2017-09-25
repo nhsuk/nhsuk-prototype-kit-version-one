@@ -11,7 +11,7 @@ const PLURALS = {
   doctor: 'doctors'
 }
 
-const SOON_IN_MILLISECONDS = 2 * 60 * 60 * 1000
+const SOON_IN_MILLISECONDS = 1 * 60 * 60 * 1000 // 1 hour
 
 function geocodeAddress (address) {
   return maps.geocode({address, region: 'uk'}).asPromise()
@@ -97,6 +97,7 @@ function formatTime (now, time) {
 
 function computeOpeningHours (openingHours = {}, now) {
   const hours = {
+    open_now: openingHours.open_now,
     status: openingHours.open_now ? 'Open' : 'Closed'
   }
 
@@ -110,7 +111,7 @@ function computeOpeningHours (openingHours = {}, now) {
       if (closeTime) {
         // closes later today
         hours.meta_status = `Closes ${formatTime(now, closeTime)}`
-        // soon: isSoon(now, closeTime, currentDay)
+        hours.closing_soon = isSoon(now, closeTime, currentDay)
       } else {
         closeTime = findNextCloseTimeOnDay(openingHours.periods, (currentDay + 1) % 7, '')
         if (closeTime) {
@@ -118,7 +119,7 @@ function computeOpeningHours (openingHours = {}, now) {
           hours.meta_status = closeTime === '0000'
             ? `Closes midnight`
             : `Closes ${formatTime(now, closeTime)} tomorrow`
-          // soon: isSoon(now, closeTime, (currentDay + 1) % 7)
+          hours.closing_soon = isSoon(now, closeTime, (currentDay + 1) % 7)
         }
       }
     } else {

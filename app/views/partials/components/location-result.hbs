@@ -7,7 +7,7 @@
   </div>
 
   <div class="c-location-result__status-wrapper">
-    <div class="c-location-result__status c-location-result__status--isOpen">
+    <div class="c-location-result__status c-location-result__status--{{#if open_now}}isOpen{{else}}isClosed{{/if}}">
         {{status}}
     </div>
     <div class="c-location-result__meta-status">{{meta_status}}</div>
