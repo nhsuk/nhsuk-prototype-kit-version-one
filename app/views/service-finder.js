@@ -1,5 +1,6 @@
 const distance = require('gps-distance')
 const moment = require('moment-timezone')
+const querystring = require('querystring')
 const maps = require('@google/maps').createClient({
   key: process.env.GOOGLE_MAPS_API_KEY,
   Promise: Promise
@@ -12,6 +13,14 @@ const PLURALS = {
 }
 
 const SOON_IN_MILLISECONDS = 1 * 60 * 60 * 1000 // 1 hour
+
+function generateMapUrlForPlace (place) {
+  const qs = querystring.stringify({
+    key: process.env.GOOGLE_MAPS_API_KEY,
+    q: `place_id:${place.place_id}`
+  })
+  return `https://www.google.com/maps/embed/v1/place?${qs}`
+}
 
 function geocodeAddress (address) {
   return maps.geocode({address, region: 'uk'}).asPromise()
@@ -55,7 +64,8 @@ function transformPlaceDetailsForTemplate (details, now) {
     rating: details.rating,
     geometry: details.geometry,
     hours: computeOpeningHours(details.opening_hours, now),
-    url: details.website || '#'
+    url: details.website || '#',
+    map_url: generateMapUrlForPlace(details)
   }
   return transformed
 }
@@ -214,6 +224,10 @@ module.exports = function (input, req) {
           ? input.find_service_type
           : PLURALS[input.find_service_type]
       ) + ' within 2 miles of this location'
+
+      if (results.length) {
+        input.starting_map_url = results[0].map_url
+      }
       return input
     })
     .catch(e => {

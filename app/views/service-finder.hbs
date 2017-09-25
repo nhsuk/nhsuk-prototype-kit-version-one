@@ -42,6 +42,7 @@
     {{/if}}
     {{#if resultCount}}
       {{#results}}
+      <div class="result" onclick="document.getElementById('gmap_canvas').src = '{{map_url}}'; return false">
       {{> components/location-result
         title=name
         title_url=url
@@ -54,6 +55,7 @@
         distance=distance
         distance_url="#"
       }}
+      </div>
       {{/results}}
     {{/if}}
   </div>
@@ -62,7 +64,7 @@
     <!-- IGNORE THIS IT'S JUST TO GIVE ME CONTEXT -->
     <div class="mapouter">
         <div class="gmap_canvas">
-          <iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Bristol%2C%20GB&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
+          <iframe width="600" height="500" id="gmap_canvas" src="{{starting_map_url}}" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div>
           <style>
           .mapouter{overflow:hidden;height:500px;width:100%;}
           .gmap_canvas {background:none!important;height:500px;width:600px;}
