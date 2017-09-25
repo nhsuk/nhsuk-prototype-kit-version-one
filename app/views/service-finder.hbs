@@ -33,7 +33,7 @@
     {{#if askToSaveLocation}}
       <div id="save-location" data-user-location="{{find_service_search}}">
         {{> components/alert
-          id="alert"
+          id="save-location-alert"
           title="Save time and remember this location?"
           description="Sell value lorem lean startup ipsum product acquihire technical."
           link_text="Save this location"
@@ -73,9 +73,9 @@
 <script>
 var elSaveLocation = document.getElementById('save-location')
 
-document.getElementById('save-location-button').addEventListener('click', saveLocation)
+elSaveLocation.querySelector('input[type=submit]').addEventListener('click', saveLocation)
 Array.prototype.forEach.call(
-  document.querySelectorAll('.refuse-save-location'),
+  elSaveLocation.querySelectorAll('a[href="#"]'),
   function (el) {
     el.addEventListener('click', refuseSaveLocation)
   }
@@ -87,7 +87,6 @@ function removeSaveLocation () {
 
 function refuseSaveLocation () {
   document.cookie = 'saveRefused=true;path=/'
-  removeSaveLocation()
 }
 
 function saveLocation () {
