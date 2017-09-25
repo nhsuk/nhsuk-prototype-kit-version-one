@@ -42,7 +42,7 @@
     {{/if}}
     {{#if resultCount}}
       {{#results}}
-      <div class="result" onclick="document.getElementById('gmap_canvas').src = '{{map_url}}'; return false">
+      <div class="result" onclick="document.getElementById('gmap_canvas').src = '{{map_url}}'">
       {{> components/location-result
         title=name
         title_url=url
