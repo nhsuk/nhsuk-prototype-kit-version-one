@@ -54,7 +54,8 @@ function transformPlaceDetailsForTemplate (details, now) {
     phone: details.formatted_phone_number,
     rating: details.rating,
     geometry: details.geometry,
-    hours: computeOpeningHours(details.opening_hours, now)
+    hours: computeOpeningHours(details.opening_hours, now),
+    url: details.website || '#'
   }
   return transformed
 }
