@@ -170,6 +170,23 @@ function computeDistances (places, input) {
   return places
 }
 
+function computeDirectionsUrls (places, input) {
+  places.forEach(place => {
+    place.directions_url = computeDirectionUrl(input, place)
+  })
+  return places
+}
+
+function computeDirectionUrl (input, place) {
+  const qs = querystring.stringify({
+    api: 1,
+    origin: `${input.lat},${input.long}`,
+    destination: `${place.geometry.location.lat},${place.geometry.location.lng}`,
+    destination_place_id: place.place_id
+  })
+  return `https://www.google.com/maps/dir/?${qs}`
+}
+
 module.exports = function (input, req) {
   input.title = 'Service Finder Results'
   input.error = {
@@ -216,6 +233,7 @@ module.exports = function (input, req) {
     .then(placeSearch)
     .then(placeDetails)
     .then(places => computeDistances(places, input))
+    .then(places => computeDirectionsUrls(places, input))
     .then(results => {
       input.results = results
       input.resultCount = results.length
