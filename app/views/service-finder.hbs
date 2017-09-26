@@ -76,14 +76,15 @@
 
 <script>
 var elSaveLocation = document.getElementById('save-location')
-
-elSaveLocation.querySelector('input[type=submit]').addEventListener('click', saveLocation)
-Array.prototype.forEach.call(
-  elSaveLocation.querySelectorAll('a[href="#"]'),
-  function (el) {
-    el.addEventListener('click', refuseSaveLocation)
-  }
-)
+if (elSaveLocation) {
+  elSaveLocation.querySelector('input[type=submit]').addEventListener('click', saveLocation)
+  Array.prototype.forEach.call(
+    elSaveLocation.querySelectorAll('a[href="#"]'),
+    function (el) {
+      el.addEventListener('click', refuseSaveLocation)
+    }
+  )
+}
 
 function removeSaveLocation () {
   elSaveLocation.parentNode.removeChild(elSaveLocation)
