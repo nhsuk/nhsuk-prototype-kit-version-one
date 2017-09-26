@@ -207,9 +207,10 @@ module.exports = function (input, req) {
 
   input.automaticLocation = input.lat && input.long
   input.savedLocation = req.cookies.savedLocation
-  input.askToSaveLocation = !input.automaticLocation &&
-                            !req.cookies.savedLocation &&
-                            !req.cookies.saveRefused
+
+  // ask to save the user's searched location if the searched location
+  // is different from the saved location
+  input.askToSaveLocation = input.savedLocation !== input.find_service_search
 
   // if the lat and long are already provided, there's no need to
   // geocode the search term

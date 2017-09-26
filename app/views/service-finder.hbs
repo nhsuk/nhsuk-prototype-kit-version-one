@@ -78,20 +78,6 @@
 var elSaveLocation = document.getElementById('save-location')
 if (elSaveLocation) {
   elSaveLocation.querySelector('input[type=submit]').addEventListener('click', saveLocation)
-  Array.prototype.forEach.call(
-    elSaveLocation.querySelectorAll('a[href="#"]'),
-    function (el) {
-      el.addEventListener('click', refuseSaveLocation)
-    }
-  )
-}
-
-function removeSaveLocation () {
-  elSaveLocation.parentNode.removeChild(elSaveLocation)
-}
-
-function refuseSaveLocation () {
-  document.cookie = 'saveRefused=true;path=/'
 }
 
 function saveLocation () {
@@ -101,6 +87,7 @@ function saveLocation () {
                     encodeURIComponent(elSaveLocation.getAttribute('data-user-location')) +
                     ';path=/;expires=' +
                     expires.toUTCString()
-  removeSaveLocation()
+
+  elSaveLocation.parentNode.removeChild(elSaveLocation)
 }
 </script>
