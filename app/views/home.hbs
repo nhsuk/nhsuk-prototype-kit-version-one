@@ -109,6 +109,7 @@
     </div>
   </div>
 
+<script async defer src="{{googleMapsLibraryUrl}}"></script>
 <script>
 var elLatitude = document.getElementById('latitude')
 var elLongitude = document.getElementById('longitude')
@@ -134,9 +135,21 @@ function setMyLocation (position) {
   elLongitude.value = position.coords.longitude
   elLongitude.disabled = false
 
-  // use the manual location input to indicate that the user's current location
-  // is being used, and
-  elManualLocation.value = 'my location'
+  // call the Google Maps reverse geocoder
+  var geocodeQuery = {
+    location: {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    }
+  }
+  var geocoder = new google.maps.Geocoder
+  geocoder.geocode(geocodeQuery, function(results, status) {
+    if (status === 'OK' && results[0]) {
+      elManualLocation.value = results[0].formatted_address
+    } else {
+      elManualLocation.value = 'my location'
+    }
+  })
 }
 
 function unsetMyLocation () {
