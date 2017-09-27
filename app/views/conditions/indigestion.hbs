@@ -100,16 +100,20 @@
         </div>
       </div>
       <div class="column-one-third">
+        {{#pharmacy}}
         {{> components/location-result
-          title="Superdrug"
-          title_url="#"
-          address="39/43 Broadmead, Bristol BS1 3EU"
-          telephone="0117 927 9928"
-          status="Open"
-          meta_status="Closes at 5:30pm"
-          distance="0.2 miles away"
-          distance_url="#"
+          title=name
+          title_url=url
+          address=address
+          telephone=phone
+          status=hours.status
+          open_now=hours.open_now
+          closing_soon=hours.closing_soon
+          meta_status=hours.meta_status
+          distance=distance
+          distance_url=directions_url
         }}
+        {{/pharmacy}}
       </div>
     </div>
   </div>
