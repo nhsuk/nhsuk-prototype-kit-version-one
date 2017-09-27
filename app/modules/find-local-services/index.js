@@ -3,6 +3,11 @@ module.exports = {
   findLocalServices: findLocalServices
 }
 
+// warn if there's no API key set up
+if (!process.env.GOOGLE_MAPS_API_KEY) {
+  console.warn('No Google Maps API key has been set! See readme.md for details on how to set it.')
+}
+
 const distance = require('gps-distance')
 const moment = require('moment-timezone')
 const querystring = require('querystring')
