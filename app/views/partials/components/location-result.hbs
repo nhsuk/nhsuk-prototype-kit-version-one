@@ -1,21 +1,23 @@
-<div class="c-location-result u-clearfix">
+<div class="c-location u-clearfix">
 
-  <div class="c-location-result__result-wrapper">
-    <h2 class="c-location-result__title"><a href="{{title_url}}">{{title}}</a></h2>
-    <div class="c-location-result__address">{{address}}</div>
-    <div class="c-location-result__telephone">{{telephone}}</div>
+  <div class="c-location__details">
+    <h2 class="c-location__title"><a href="{{title_url}}" target="_blank">{{title}}</a></h2>
+    <div class="c-location__address">{{address}}</div>
+    <div class="c-location__telephone">{{telephone}}</div>
   </div>
 
-  <div class="c-location-result__status-wrapper">
-    <div class="c-location-result__status c-location-result__status--{{#if open_now}}isOpen{{else}}isClosed{{/if}}">
+  <div class="c-location__status">
+    <div class="c-location__state c-location__state--{{#if open_now}}open{{else}}closed{{/if}}">
         {{status}}
     </div>
-    <div class="c-location-result__meta-status">{{meta_status}}</div>
+    <div class="c-location__meta-status">{{meta_status}}</div>
   </div>
 
-  <div class="c-location-result__distance-wrapper  u-clearfix">
-    <span class="c-location-result__distance">{{distance}}&nbsp;</span>
-    <span class="c-location-result__directions"><a href="{{distance_url}}" class="c-location-result__action">Get directions</a></span>
+  <div class="c-location__distance-wrapper  u-clearfix">
+    <span class="c-location__distance">{{distance}}&nbsp;</span>
+    <span class="c-location__directions">
+      <a class="c-location__action" href="{{distance_url}}" target="_blank">Get directions</a>
+    </span>
   </div>
 
 </div>

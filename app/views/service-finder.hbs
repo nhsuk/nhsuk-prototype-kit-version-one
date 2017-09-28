@@ -1,9 +1,9 @@
 <h1>Find local NHS services</h1>
 <div class="c-faceted-search">
-  <div class="grid-row">
+  <div class="o-layout">
     <form>
       <fieldset>
-        <div class="column-one-quarter c-faceted-search__facet">
+        <div class="o-layout__item u-width-1/4 c-faceted-search__facet">
           <label class="c-label" for="find_service_type">NHS service</label>
           <select class="c-text-field" id="find_service_type" name="find_service_type">
             {{#find_service_types}}
@@ -11,12 +11,12 @@
             {{/find_service_types}}
           </select>
         </div>
-        <div class="column-one-half c-faceted-search__input">
+        <div class="o-layout__item u-width-1/2 c-faceted-search__input">
           <label class="c-label" for="find_service_search">Your location</label>
           <input class="c-text-field" id="find_service_search" name="find_service_search" type="text"
                  value="{{find_service_search}}">
         </div>
-        <div class="column-one-quarter c-faceted-search__submit">
+        <div class="o-layout__item u-width-1/4 c-faceted-search__submit">
           <input class="c-btn c-btn--primary" value="Find services" type="submit">
         </div>
       </fieldset>
@@ -28,8 +28,9 @@
   </div>
 </div>
 <h3 class="c-result-number"><strong>{{resultCount}}</strong> {{resultDescription}}</h3>
-<div class="grid-row">
-  <div class="column-two-thirds">
+
+<div class="o-layout o-layout--full">
+  <div class="o-layout__item u-width-2/3">
     {{#if askToSaveLocation}}
       <div id="save-location" data-user-location="{{find_service_search}}">
         {{> components/alert
@@ -60,7 +61,7 @@
     {{/if}}
   </div>
 
-  <div class="column-one-third">
+  <div class="o-layout__item u-width-1/3">
     <!-- IGNORE THIS IT'S JUST TO GIVE ME CONTEXT -->
     <div class="mapouter">
         <div class="gmap_canvas">
