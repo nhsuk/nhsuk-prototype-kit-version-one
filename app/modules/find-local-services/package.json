@@ -1,0 +1,15 @@
+{
+  "name": "find-local-services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "dependencies": {
+    "@google/maps": "^0.4.3",
+    "gps-distance": "0.0.4",
+    "moment-timezone": "^0.5.13"
+  }
+}
