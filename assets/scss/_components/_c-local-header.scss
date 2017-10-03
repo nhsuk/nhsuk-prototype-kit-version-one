@@ -1,0 +1,34 @@
+.c-local-header {
+  border-top: 1px solid #338ed1;
+  padding-top: 128px;
+  padding-bottom: 32px;
+  background-color: $--color-nhs-blue;
+  color: $--color-white;
+}
+
+.c-local-header__title {
+  font-size: 48px;
+  line-height: 64px;
+  // margin-bottom: 32px;
+}
+
+.c-local-header__intro {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 32px;
+  max-width: 700px;
+  position: relative;
+  // margin-bottom: 40px;
+  padding-top: 48px;
+
+  &:before {
+    background-color: #76adda;
+    content: "";
+    display: block;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 32px;
+    width: 130px;
+  }
+}

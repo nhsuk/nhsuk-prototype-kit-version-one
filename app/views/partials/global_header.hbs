@@ -1,4 +1,4 @@
-<header class="c-global-header {{#isHomepage}}c-global-header--hasHero{{/isHomepage}}">
+<header class="c-global-header {{#isHomepage}}c-global-header--home{{/isHomepage}}">
   <div class="o-site-width">
     <div class="c-global-header__logo">
       <a href="/home">
@@ -12,22 +12,16 @@
         </svg>
       </a>
     </div>
-    {{#isHomepage}}
-      <div class="c-hero">
-        {{#if title}}
-          <h1 class="c-hero__title">{{title}}</h1>
-        {{/if}}
-        <p class="c-hero__lede">
-          {{{lede}}}
-        </p>
-        {{#if hasOmniSearch}}
-        <div class="c-home-search">
-          <form action="https://nhs-admin.funnelback.co.uk/s/search.html" method="get">
-            <input class="c-home-search__input" id="query" name="query" autofocus="" autocomplete="off" spellcheck="false"><button class="c-home-search__submit">Search</button>
-          </form>
-        </div>
-        {{/if}}
-      </div>
-    {{/isHomepage}}
+
+    {{#hasOmniSearch}}
+    <div class="c-home-search">
+      <p class="c-home-search__intro">
+        Welcome to the new NHS website. <label for="query">Search for health problems, medicines, NHS services, healthy living tips and more.</label>
+      </p>
+      <form action="https://nhs-admin.funnelback.co.uk/s/search.html" method="get">
+        <input class="c-home-search__input" id="query" name="query" autofocus="" autocomplete="off" spellcheck="false"><button class="c-home-search__submit">Search</button>
+      </form>
+    </div>
+    {{/hasOmniSearch}}
   </div>
 </header>

@@ -1,16 +1,18 @@
 .c-global-header {
   background-color: $--color-nhs-blue;
   color: $--color-white;
-  padding-top: ($--global-spacing-unit * 8); //32px
-  padding-bottom: ($--global-spacing-unit * 8); //32px
+  // padding-bottom: ($--global-spacing-unit * 10); //40px
 }
 
-.c-global-header--hasHero {
+.c-global-header--home {
   background-image: radial-gradient(circle at center, $--color-bright-blue 0, $--color-nhs-blue 100%);
   padding-bottom: ($--global-spacing-unit * 26); //104px
 }
 
 .c-global-header__logo {
+  padding-top: ($--global-spacing-unit * 8); //32px
+  padding-bottom: ($--global-spacing-unit * 8); //32px
+
   svg {
     display: block;
   }
