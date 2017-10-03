@@ -42,8 +42,9 @@
       </div>
     {{/if}}
     {{#if resultCount}}
+    <div id="results">
       {{#results}}
-      <div class="result" onclick="document.getElementById('gmap_canvas').src = '{{map_url}}'">
+      <div class="result" data-map-url="{{map_url}}">
       {{> components/location-result
         title=name
         title_url=url
@@ -58,6 +59,7 @@
       }}
       </div>
       {{/results}}
+    </div>
     {{/if}}
   </div>
 
@@ -90,5 +92,21 @@ function saveLocation () {
                     expires.toUTCString()
 
   elSaveLocation.parentNode.removeChild(elSaveLocation)
+}
+
+var elMap = document.getElementById('gmap_canvas')
+
+Array.prototype.forEach.call(
+  document.querySelectorAll('#results .result'),
+  function (el) { el.addEventListener('click', syncMapToResult) }
+)
+
+function syncMapToResult (ev) {
+  if (ev.currentTarget.hasAttribute('data-map-url')) {
+    var mapUrl = ev.currentTarget.getAttribute('data-map-url')
+    setTimeout(function () {
+      elMap.src = mapUrl
+    }, 0)
+  }
 }
 </script>
