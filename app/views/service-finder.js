@@ -8,7 +8,7 @@ const PLURALS = {
 
 module.exports = function (input, req) {
   input.isHomepage = false
-  input.local_header_title = 'Service Finder Results'
+  input.title = input.local_header_title = 'Service Finder Results'
   input.hasOmniSearch = false
   input.error = {
     geocodingFailed: false
