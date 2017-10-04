@@ -1,6 +1,11 @@
+const memoize = require('promise-memoize')
+
 module.exports = {
-  locateAddress: locateAddress,
-  findLocalServices: findLocalServices
+  // geolocation results are cached indefinitely
+  locateAddress: memoize(locateAddress),
+
+  // Place searches are cached for 5 minutes
+  findLocalServices: memoize(findLocalServices, {maxAge: 5 * 60 * 1000, resolve: 'json'})
 }
 
 // warn if there's no API key set up

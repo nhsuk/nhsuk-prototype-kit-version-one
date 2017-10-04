@@ -38,6 +38,7 @@
     "morgan": "~1.8.1",
     "node-fetch": "^1.7.3",
     "pa11y-ci": "^1.2.0",
+    "promise-memoize": "^1.2.0",
     "prompt": "^1.0.0",
     "require-dir": "^0.3.2",
     "serve-favicon": "~2.4.2"
