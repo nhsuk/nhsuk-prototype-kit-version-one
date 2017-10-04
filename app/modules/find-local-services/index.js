@@ -79,6 +79,7 @@ function placeSearch (location, serviceType) {
   return maps.placesNearby(query).asPromise()
     .then(response => response.json.results)
     .then(places => places.filter(place => !place.permanently_closed))
+    .then(places => places.slice(0, 8))
 }
 
 function placeDetails (places) {
