@@ -26,31 +26,19 @@ module.exports = function (input, req) {
     return type
   })
 
-  input.automaticLocation = input.lat && input.long
   input.savedLocation = req.cookies.savedLocation
 
   // ask to save the user's searched location if the searched location
   // is different from the saved location
   input.askToSaveLocation = input.savedLocation !== input.find_service_search
 
-  // if the lat and long are already provided, there's no need to
-  // geocode the search term
-  const locationProvider = (input.lat && input.long)
-    ? Promise.resolve(input)
-        .then(input => {
-          input.lat = parseFloat(input.lat)
-          input.long = parseFloat(input.long)
-          return input
-        })
-    : serviceFinder.locateAddress(input.find_service_search)
-        .then(location => {
-          console.log('Geocoding returned', location)
-          input.lat = location.lat
-          input.long = location.lng
-          return input
-        })
-
-  return locationProvider
+  return serviceFinder.locateAddress(input.find_service_search)
+    .then(location => {
+      console.log('Geocoding returned', location)
+      input.lat = location.lat
+      input.long = location.lng
+      return input
+    })
     .then(location => serviceFinder.findLocalServices(
       {lat: location.lat, lng: location.long}, input.find_service_type
     ))
