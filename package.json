@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node start.js",
+    "debug": "node --inspect start.js",
     "setup": "npm install && npm run build && npm start",
     "build": "gulp styles",
     "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.hbs'",
