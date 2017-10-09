@@ -1,12 +1,9 @@
 <div class="c-local-header">
   <div class="o-wrapper">
-    <h1 class="c-local-header__title">{{ title }}</h1>
+    <h1 class="c-local-header__title u-reading-width">{{ title }}</h1>
+
     {{#if text}}
-    <div class="c-local-header__intro">
-      <div class="reading-width">
-        <p>{{ text }}</p>
-      </div>
-    </div>
+    <p class="c-local-header__intro u-reading-width">{{ text }}</p>
     {{/if}}
   </div>
 </div>

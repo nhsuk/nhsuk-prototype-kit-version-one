@@ -1,5 +1,5 @@
 .c-local-header {
-  border-top: 1px solid #338ed1;
+  border-top: 1px solid $--color-blue-50;
   padding-top: 128px;
   padding-bottom: 32px;
   background-color: $--color-nhs-blue;
@@ -7,8 +7,8 @@
 }
 
 .c-local-header__title {
-  font-size: 48px;
-  line-height: 64px;
+  font-size: 56px;
+  line-height: 72px;
   // margin-bottom: 32px;
 }
 
@@ -22,7 +22,7 @@
   padding-top: 48px;
 
   &:before {
-    background-color: #76adda;
+    background-color: $--color-blue-50;
     content: "";
     display: block;
     height: 4px;

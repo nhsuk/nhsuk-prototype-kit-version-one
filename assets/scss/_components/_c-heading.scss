@@ -7,8 +7,8 @@
 }
 
 .c-heading--md {
-  @include font(medium)
-    margin-bottom: 24px;
+  @include font(medium);
+  margin-bottom: 24px;
 }
 
 .c-heading--sm {

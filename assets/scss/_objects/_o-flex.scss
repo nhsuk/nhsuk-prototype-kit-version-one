@@ -1,13 +1,13 @@
-.flex-container {
+.o-flex {
   display: flex;
   flex-wrap: wrap;
-  margin-left: -$--layout-gutter-half;
-  margin-right: -$--layout-gutter-half;
+  margin-left: -($--layout-gutter-half);
+  margin-right: -($--layout-gutter-half);
 }
-.flex-item {
+.o-flex__item {
   padding: 0 $--layout-gutter-half;
 }
 
-.flex-item--one-third {
-  width: 33.33%;
-}
+// .flex-item--one-third {
+//   width: 33.33%;
+// }

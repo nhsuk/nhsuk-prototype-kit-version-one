@@ -1,6 +1,8 @@
 .c-location {
   border-bottom: 1px solid $--color-grey-4;
-  padding: ($--global-spacing-unit * 3) ($--global-spacing-unit * 6);
+  padding-top: ($--global-spacing-unit * 3);
+  padding-right: ($--global-spacing-unit * 6);
+  padding-bottom: ($--global-spacing-unit * 3);
 }
 
 // .c-location:hover {

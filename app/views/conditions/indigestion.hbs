@@ -1,7 +1,6 @@
-<article role="article">
-  <div class="page-section">
-    <div class="grid-row">
-      <div class="column-two-thirds o-conditions">
+<article>
+    <div class="o-layout" style="margin-top: 32px;">
+      <div class="o-layout__item u-width-2/3 s-conditions">
         <h2 id="how-to-tell-if-you-have-indigestion-dyspepsia">How to tell if you have indigestion (dyspepsia)</h2>
         <p>You can have the following symptoms after eating or drinking:</p>
         <ul>
@@ -93,14 +92,15 @@
         </details>
 -->
         <div class="callout component-muted">
-          <div class="reading-width">
+          <div class="u-reading-width">
             <h2>Call 111</h2>
             <p>If you can’t speak to your GP or don’t know what to do next.</p>
           </div>
         </div>
       </div>
-      <div class="column-one-third">
+      <div class="o-layout__item u-width-1/3">
         {{#pharmacy}}
+        <h2 class="c-heading c-heading--md">Closest open pharmacy</h2>
         {{> components/location-result
           title=name
           title_url=url
@@ -127,5 +127,4 @@
       <a href="http://www.nhs.uk/conditions/Indigestion/Pages/Introduction.aspx?nobeta=true" data-analytics="external">back to the current site</a>.
     </div> -->
 
-  </div>
 </article>
