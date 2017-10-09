@@ -1,6 +1,11 @@
+const memoize = require('promise-memoize')
+
 module.exports = {
-  locateAddress: locateAddress,
-  findLocalServices: findLocalServices
+  // geolocation results are cached indefinitely
+  locateAddress: memoize(locateAddress),
+
+  // Place searches are cached for 5 minutes
+  findLocalServices: memoize(findLocalServices, {maxAge: 5 * 60 * 1000, resolve: 'json'})
 }
 
 // warn if there's no API key set up
@@ -74,6 +79,7 @@ function placeSearch (location, serviceType) {
   return maps.placesNearby(query).asPromise()
     .then(response => response.json.results)
     .then(places => places.filter(place => !place.permanently_closed))
+    .then(places => places.slice(0, 8))
 }
 
 function placeDetails (places) {

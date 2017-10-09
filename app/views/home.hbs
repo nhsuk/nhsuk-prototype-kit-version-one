@@ -52,8 +52,6 @@
       </div>
       <div>
         <button id="use-my-location" class="c-button-link c-button-link--location" type="button">Use my location</button> - your browser will ask for permission
-        <input type="hidden" id="latitude" name="lat" disabled>
-        <input type="hidden" id="longitude" name="long" disabled>
       </div>
     </div>
   </form>
@@ -111,16 +109,10 @@
 
 <script async defer src="{{googleMapsLibraryUrl}}"></script>
 <script>
-var elLatitude = document.getElementById('latitude')
-var elLongitude = document.getElementById('longitude')
 var elManualLocation = document.getElementById('find_service_search')
 
 // set up the "Use my location" button
 document.getElementById('use-my-location').addEventListener('click', useMyLocation)
-
-// set up a change handler on the manual location to disable automatic
-// location if a new manual location is entered
-elManualLocation.addEventListener('change', unsetMyLocation)
 
 function useMyLocation () {
   if ('geolocation' in navigator) {
@@ -129,12 +121,6 @@ function useMyLocation () {
 }
 
 function setMyLocation (position) {
-  elLatitude.value = position.coords.latitude
-  elLatitude.disabled = false
-
-  elLongitude.value = position.coords.longitude
-  elLongitude.disabled = false
-
   // call the Google Maps reverse geocoder
   var geocodeQuery = {
     location: {
@@ -142,7 +128,8 @@ function setMyLocation (position) {
       lng: position.coords.longitude
     }
   }
-  var geocoder = new google.maps.Geocoder
+
+  var geocoder = new google.maps.Geocoder()
   geocoder.geocode(geocodeQuery, function(results, status) {
     if (status === 'OK' && results[0]) {
       elManualLocation.value = results[0].formatted_address
@@ -150,13 +137,5 @@ function setMyLocation (position) {
       elManualLocation.value = 'my location'
     }
   })
-}
-
-function unsetMyLocation () {
-  elLatitude.value = ''
-  elLatitude.disabled = true
-
-  elLongitude.value = ''
-  elLongitude.disabled = true
 }
 </script>
