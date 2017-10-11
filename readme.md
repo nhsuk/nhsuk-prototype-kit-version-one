@@ -11,7 +11,11 @@ Before publishing your prototypes online, they must be protected by a username a
 
 You must protect user privacy at all times, even when using prototypes. Always make sure you are handling user data appropriately.
 
-## Running the example prototypes
-In order to run the example prototypes that use Google's mapping services, you must supply
-an [API key](https://developers.google.com/maps/documentation/javascript/get-api-key) that
-has the following services enabled;  Google Places API Web Service, Google Maps JavaScript API, Google Maps Directions API and Google Maps Geocoding API. Provide the key using the environment variable *GOOGLE_MAPS_API_KEY*.
+## Documentation
+1. [Getting Started](/docs/guides/getting-started.md)
+2. [Creating Your First Prototype](/docs/guides/your-first-prototype.md)
+3. [Server-side Logic](/docs/guides/server-side-logic.md)
+4. [Page Transitions](/docs/guides/page-transitions.md)
+5. [Providing Data Using Asynchronous APIs](/docs/guides/asynchronous-apis.md)
+6. [Publishing to Heroku](/docs/guides/publishing-to-heroku.md)
+7. [Debugging](/docs/guides/debugging.md)

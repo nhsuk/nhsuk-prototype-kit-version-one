@@ -1,5 +1,15 @@
 .c-home-search {
-  margin-bottom: ($--global-spacing-unit * 6);
+  margin-bottom: ($--global-spacing-unit * 16);
+}
+
+.c-home-search__intro {
+  font-size: 24px;
+  font-weight: 300;
+  line-height: 32px;
+  max-width: 700px;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+  position: relative;
 }
 
 .c-home-search__input {
@@ -8,7 +18,7 @@
   border-bottom-left-radius: 5px;
   font-size: 18px;
   padding: 18px;
-  width: 80%;
+  width: 50%;
 
   &:focus {
     // outline: $--global-spacing-unit solid $--color-focus;

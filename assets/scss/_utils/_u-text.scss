@@ -14,6 +14,8 @@
   text-rendering: optimizeLegibility;
 }
 
+.u-textLight { font-weight: normal !important; }
+
 .u-textNoWrap { white-space: nowrap !important; }
 
 .u-textTruncate {
@@ -22,4 +24,15 @@
   text-overflow: ellipsis !important;
   white-space: nowrap !important;
   word-wrap: normal !important;
+}
+
+.u-sr-only {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }

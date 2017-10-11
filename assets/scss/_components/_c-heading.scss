@@ -8,6 +8,7 @@
 
 .c-heading--md {
   @include font(medium)
+    margin-bottom: 24px;
 }
 
 .c-heading--sm {
@@ -16,5 +17,5 @@
 
 .c-heading--underline {
   border-bottom: 1px solid $--color-grey-3;
-  padding-bottom: $--global-spacing-unit;
+  padding-bottom: ($--global-spacing-unit * 4);
 }

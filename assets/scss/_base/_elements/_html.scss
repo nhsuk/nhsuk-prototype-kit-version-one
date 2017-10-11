@@ -2,6 +2,8 @@ html {
   box-sizing: border-box;
   font-size: $--base-font-size;
   text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   -ms-overflow-style: scrollbar;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 }

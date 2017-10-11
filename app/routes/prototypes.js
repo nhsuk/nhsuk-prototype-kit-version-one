@@ -57,6 +57,9 @@ module.exports = function (app, hbs) {
        .then(generateInput(req))
        .then(validateRequest(req))
        .then(redirectOrRender(req, res))
-       .catch(next)
+       .catch(ex => {
+         console.log(ex)
+         next()
+       })
   })
 }

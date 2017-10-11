@@ -4,10 +4,16 @@
   font-size: 20px;
   line-height: 1.1;
   padding: 12px 24px;
+  cursor: pointer;
 }
 .c-btn--primary {
-  background: #007F3B;
+  background: $--color-green;
   border-bottom: 2px solid #006747;
   border-radius: 4px;
   color: $--color-white;
+}
+
+.c-button--small {
+  font-size: 16px;
+  padding: 8px 12px;
 }

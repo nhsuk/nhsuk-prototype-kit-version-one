@@ -15,8 +15,14 @@
 <body>
   {{> global_header }}
 
-  <main class="o-wrapper">
-    {{{body}}}
+  <main class="">
+    {{#if local_header_title}}
+      {{> 'components/local-header' title=local_header_title text=local_header_text }}
+    {{/if}}
+
+    <div class="o-wrapper">
+      {{{body}}}
+    </div>
   </main>
 
   {{> global_footer }}
