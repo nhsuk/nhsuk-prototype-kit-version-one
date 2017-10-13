@@ -1,9 +1,9 @@
-const srcPath = './assets/'
-const destPath = './public/'
-
 // Use this file to change prototype configuration.
 
 // Note: prototype config can be overridden using environment variables (eg on heroku)
+
+const srcPath = './assets/'
+const destPath = './public/'
 
 module.exports = {
   app: {
@@ -40,8 +40,8 @@ module.exports = {
     },
     css: {
       // src: srcPath + 'scss/**/[!_]*.scss',
-      src: srcPath + 'scss/**/*.scss',
-      dest: destPath + 'stylesheets'
+      src: [srcPath + 'scss/app/**/*.scss', srcPath + 'scss/nhsuk/**/*.scss'],
+      dest: destPath
     }
   }
 
