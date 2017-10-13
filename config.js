@@ -2,6 +2,9 @@
 
 // Note: prototype config can be overridden using environment variables (eg on heroku)
 
+const srcPath = './assets/'
+const destPath = './public/'
+
 module.exports = {
   app: {
     // Service name used in header. Eg: 'Renew your passport'
@@ -32,11 +35,16 @@ module.exports = {
   gulp: {
     paths: {
       public: 'public/',
-      assets: 'app/assets/',
+      assets: 'assets/',
       docsAssets: 'docs/assets/',
       nhsAssets: 'govuk_modules/',
       nodeModules: 'node_modules/',
       lib: 'lib/'
+    },
+    css: {
+      // src: srcPath + 'scss/**/[!_]*.scss',
+      src: [srcPath + 'scss/app/**/*.scss', srcPath + 'scss/nhsuk/**/*.scss'],
+      dest: destPath
     }
   }
 
