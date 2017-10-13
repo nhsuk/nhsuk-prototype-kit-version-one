@@ -7,9 +7,6 @@ const destPath = './public/'
 
 module.exports = {
   app: {
-    // Service name used in header. Eg: 'Renew your passport'
-    serviceName: 'Service name goes here',
-
     // Default port that prototype runs on
     port: '3000',
 
@@ -34,10 +31,10 @@ module.exports = {
 
   gulp: {
     paths: {
-      public: 'public/',
-      assets: 'assets/',
+      public: destPath,
+      assets: srcPath,
       docsAssets: 'docs/assets/',
-      nhsAssets: 'govuk_modules/',
+      // nhsukAssets: 'govuk_modules/',
       nodeModules: 'node_modules/',
       lib: 'lib/'
     },

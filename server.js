@@ -126,7 +126,7 @@ utils.findAvailablePort(app, function (port) {
         ui: false,
         files: ['public/**/*.*', 'app/views/**/*.*'],
         ghostmode: false,
-        open: false,
+        open: true,
         notify: false,
         logLevel: 'error'
       })
