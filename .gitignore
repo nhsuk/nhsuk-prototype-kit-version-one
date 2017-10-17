@@ -7,5 +7,4 @@ public
 
 assets/scss/nhsuk
 
-tests/pa11y/reports/*.png
-tests/pa11y/reports/*.html
+tests/pa11y/reports/*.*
