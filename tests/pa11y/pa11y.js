@@ -1,27 +1,79 @@
 'use strict'
+// TO DO:
+//  - INVESTIGATE PA11Y DASHBOARD 👎 (requires MongoDB)
+//  - DYNAMIC REPORT NAMES ✅ Done
+//  - ADD TO TESTS / GULP
+//  - REMOVE PA11Y-CI (FILES & DEPENDENCIES)
+//  - PASS AN ARRAY OF URLS ✅ Done
+//  NICE TO HAVE:
+//  - TEST THE CORRECT APPLICATION IS RUNNING ON 3000?
+//  - PULL THE PORT FROM CONFIG?
+//  - OPEN RESULTS AFTER TEST
+
+//  --------------------------------------------------------
+// DEPENDENCIES
+//  --------------------------------------------------------
 
 const pa11y = require('pa11y')
 const path = require('path')
-const html = require('pa11y-reporter-html')
+const htmlReporter = require('pa11y-reporter-html')
 const fs = require('fs')
 
-pa11y('http://localhost:3000/', {
+//  --------------------------------------------------------
+//  CONFIGURATION
+//  --------------------------------------------------------
+
+const testConfig = {
+  // Reporting level
+  includeNotices: false,
   includeWarnings: true,
+  // Accessibility standard [Section508, WCAG2A, WCAG2AA, WCAG2AAA]
   standard: 'WCAG2AAA',
-  screenCapture: path.join(__dirname, 'reports/capture.png'),
-  // Log what's happening to the console
+  // Log activity to the console
   log: {
     debug: console.log,
     error: console.error,
     info: console.log
   }
-}).then(results => {
-  // Convert results to HTML
-  const htmlResults = html.results(results).then(markup => {
-    fs.appendFile(path.join(__dirname, 'reports/results.html'), markup, function (err) {
-      if (err) {
-        return console.log(err)
-      }
+}
+
+const testUrls = [
+    {name: 'Homepage', url: 'http://localhost:3000/'},
+    {name: 'Test page', url: 'http://localhost:3000/examples/test'}
+]
+
+//  --------------------------------------------------------
+// RECURSIVE FUNCTION
+//  --------------------------------------------------------
+
+testUrls.forEach(function (test) {
+  pa11y(test.url, testConfig).then(results => {
+    // log results to console
+    console.log(results)
+    // log results to HTML
+    htmlReporter.results(results).then(markup => {
+      writeReportToHTML(markup, test.name)
     })
   })
 })
+
+//  --------------------------------------------------------
+// UTILS
+//  --------------------------------------------------------
+
+function writeReportToHTML (htmlText, name) {
+  const fileName = createFileName(name)
+  const filePath = path.join(__dirname, 'reports/', fileName)
+  fs.appendFile(filePath, htmlText, function (err) {
+    if (err) {
+      return console.log(err)
+    }
+    console.log('Saved report to ' + filePath)
+  })
+}
+
+function createFileName (name) {
+  const d = new Date()
+  const datestring = d.getFullYear() + ('0' + (d.getMonth() + 1)).slice(-2) + ('0' + d.getDate()).slice(-2) + '_' + ('0' + d.getHours()).slice(-2) + ('0' + d.getMinutes()).slice(-2)
+  return (datestring + '_' + name + '.html')
+}
