@@ -9,7 +9,7 @@
     "build": "gulp styles",
     "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.hbs'",
     "test": "npm run lint",
-    "test-pa11y": "./node_modules/.bin/pa11y-ci"
+    "test-pa11y": "node tests/pa11y/pa11y.js"
   },
   "standard": {
     "plugins": [
@@ -43,7 +43,6 @@
     "minimist": "^1.2.0",
     "morgan": "~1.8.1",
     "pa11y": "^5.0.0-beta.2",
-    "pa11y-ci": "^1.2.0",
     "pa11y-reporter-html": "^1.0.0",
     "prompt": "^1.0.0",
     "require-dir": "^0.3.2",

@@ -1,8 +1,0 @@
-{
-	"defaults": {
-		"timeout": 10000
-	},
-	"urls": [
-		"http://localhost:3000"
-	]
-}
