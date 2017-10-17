@@ -2,7 +2,7 @@
 **Author**: Steven Adams  
 **Date**: 9/10/17  
 
-For the nhsuk-prototype-kit repo we use the [MasterFlow branching strategy](https://medium.com/kainos/masterflow-simple-git-branching-e9b6844d64af). Branch names must conform to the following naming convention, where branch-type can be `feature`, `hotfix-[release-being-hotfixed]`, or `refactor`:
+For the nhsuk-prototype-kit repo we use the [MasterFlow branching strategy](https://medium.com/kainos/masterflow-simple-git-branching-e9b6844d64af). Branch names must conform to the following naming convention, where branch-type can be `feature` or `hotfix-[release-being-hotfixed]`:
 
 `[branch-type]/[JIRA-ticket-id]-short-and-descriptive-branch-name`
 
