@@ -1,4 +1,4 @@
-# Unified Prototyping Platform Documentation
+# NHSUK Prototype Kit
 [Table of Contents](/docs/guides/index.md)
 
 ## Debugging

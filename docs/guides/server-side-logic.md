@@ -1,11 +1,11 @@
-# Unified Prototyping Platform Documentation
+# NHSUK Prototype Kit
 [Table of Contents](/docs/guides/index.md)
 
 ## Server-side logic
-Although UPP uses the Express server engine under the hood, you do not need to
+Although the Prototype Kit uses the Express server engine under the hood, you do not need to
 know about that in order to add server-side logic to your prototypes. Most requirements
 can be handled by manipulating the input and sending variables into the templates.
-UPP makes this model of logic easy to implement.
+The Prototype Kit makes this model of logic easy to implement.
 
 ## Adding an input handler to a template
 To add an input handler to a template, simple create a file with the same name
@@ -32,7 +32,7 @@ you can use to differentiate between GET and POST requests, access cookies and
 other advanced features. If you do not need that, you can omit the parameter.
 
 ## Setting the page title
-If you provide a `title` variable to a template, UPP will automatically use it
+If you provide a `title` variable to a template, the Prototype Kit will automatically use it
 to set the page's title in the browser. For example,
 
 ```js

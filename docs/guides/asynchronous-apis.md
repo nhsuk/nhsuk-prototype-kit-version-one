@@ -1,8 +1,8 @@
-# Unified Prototyping Platform Documentation
+# NHSUK Prototype Kit
 [Table of Contents](/docs/guides/index.md)
 
 ## Providing data using asynchronous APIs
-UPP supports building very high-fidelity prototypes that make use of asynchronous
+The Prototype Kit supports building very high-fidelity prototypes that make use of asynchronous
 APIs such as [Google Maps](https://github.com/googlemaps/google-maps-services-js).
 
 ## Consider the alternatives first
@@ -14,7 +14,7 @@ will suffice.
 Calling an API is an inherently asynchronous operation, which means that the
 rendering of a template that uses data from an API needs to be correctly scheduled.
 
-UPP supports this by allowing a handler to return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
+The Prototype Kit supports this by allowing a handler to return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises)
 that resolves to the input required for the template.
 
 Here is a simple example that waits for 3 seconds before returning the data

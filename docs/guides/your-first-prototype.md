@@ -1,22 +1,22 @@
-# Unified Prototyping Platform Documentation
+# NHSUK Prototype Kit
 [Table of Contents](/docs/guides/index.md)
 
 ## Creating your first prototype
-The simplest prototype is a single page with HTML content. UPP takes care
+The simplest prototype is a single page with HTML content. The Prototype Kit takes care
 of adding a standard header and footer to your content. Any and all HTML is
 allowed within templates. You can also add CSS and Javascript inline with your
 content. Templates can also use variables provided by forms within your content.
 
-Additional guides deal with the advanced features of UPP such as
+Additional guides deal with the advanced features of the Prototype Kit such as
 server-side logic, page transitions, validation and calling asynchronous APIs.
 
 ## Adding a template
-UPP uses the [Handlebars](http://handlebarsjs.com/) templating engine by default.
+The Prototype Kit uses the [Handlebars](http://handlebarsjs.com/) templating engine by default.
 
-Create a file in `app/views` with a `.hbs` extension. UPP will automatically expose it at localhost:3000/_your-template-name_ without the .hbs extension. Subdirectories are also supported. For example, a template at `app/views/subdir/template.hbs` will be exposed as localhost:3000/subdir/template
+Create a file in `app/views` with a `.hbs` extension. The Prototype Kit will automatically expose it at localhost:3000/_your-template-name_ without the .hbs extension. Subdirectories are also supported. For example, a template at `app/views/subdir/template.hbs` will be exposed as localhost:3000/subdir/template
 
 ## Viewing the page
-To view the page you created, the UPP server must be started if it is not already.
+To view the page you created, the Prototype Kit server must be started if it is not already.
 
 In the directory you cloned the kit, run the following command to start the server;
 ```bash
@@ -29,7 +29,7 @@ the file `app/views/prototype.hbs`, navigate to http://localhost:3000/prototype.
 
 ## Adding a form
 
-UPP automatically passes incoming form data through to templates without requiring
+The Prototype Kit automatically passes incoming form data through to templates without requiring
 you to write server-side logic. The Handlebars
 engine makes it easy to use these variables to create dynamic page content.
 
@@ -54,7 +54,7 @@ variable is a Handlebars shortcut for referring to the variable in the condition
 
 ## Adding styles
 
-UPP has built-in styles for basic typography and presentation that matches the
+The Prototype Kit has built-in styles for basic typography and presentation that matches the
 NHS standards. As the templating system allows any HTML, you can freely add styles
 inline with your content using `style` attributes. For more general styling such
 as adding CSS classes, you can using `<style>` blocks anywhere within your content.

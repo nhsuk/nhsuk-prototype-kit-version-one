@@ -1,10 +1,10 @@
-# Unified Prototyping Platform Documentation
+# NHSUK Prototype Kit
 [Table of Contents](/docs/guides/index.md)
 
 ## Getting Started
 
 ### Installing the prerequisite tools
-To run and develop on the UPP you need to have Node.js and the bundled
+To run and develop on the Prototype Kit you need to have Node.js and the bundled
 package manager npm installed. We recommend installing version 8 or higher of
 Node.js. [Download Node.js](https://nodejs.org/en/download/current/)
 
@@ -22,8 +22,8 @@ git version 2.11.0
 For best results during development you should also install an editor or
 Integrated Development Environment that supports HTML and Javascript.
 
-### Cloning the UPP Git repository
-The UPP code is maintained in a [public Git repository on Github](https://github.com/nhsuk/nhsuk-prototype-kit). Clone this into a
+### Cloning the Git repository
+The Prototype Kit code is maintained in a [public Git repository on Github](https://github.com/nhsuk/nhsuk-prototype-kit). Clone this into a
 directory on your development system like so;
 
 ```bash
