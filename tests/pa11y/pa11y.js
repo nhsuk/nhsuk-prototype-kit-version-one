@@ -1,18 +1,4 @@
 'use strict'
-// TO DO:
-//  - INVESTIGATE PA11Y DASHBOARD 👎 (requires MongoDB)
-//  - DYNAMIC REPORT NAMES ✅ Done
-//  - ADD TO TESTS / GULP
-//  - REMOVE PA11Y-CI (FILES & DEPENDENCIES)
-//  - PASS AN ARRAY OF URLS ✅ Done
-//  NICE TO HAVE:
-//  - TEST THE CORRECT APPLICATION IS RUNNING ON 3000?
-//  - PULL THE PORT FROM CONFIG?
-//  - OPEN RESULTS AFTER TEST
-
-//  --------------------------------------------------------
-// DEPENDENCIES
-//  --------------------------------------------------------
 
 const pa11y = require('pa11y')
 const path = require('path')
@@ -22,6 +8,11 @@ const fs = require('fs')
 //  --------------------------------------------------------
 //  CONFIGURATION
 //  --------------------------------------------------------
+
+const testUrls = [
+    {name: 'Homepage', url: 'http://localhost:3000/'},
+    {name: 'Test page', url: 'http://localhost:3000/examples/test'}
+]
 
 const testConfig = {
   // Reporting level
@@ -36,11 +27,6 @@ const testConfig = {
     info: console.log
   }
 }
-
-const testUrls = [
-    {name: 'Homepage', url: 'http://localhost:3000/'},
-    {name: 'Test page', url: 'http://localhost:3000/examples/test'}
-]
 
 //  --------------------------------------------------------
 // RECURSIVE FUNCTION
