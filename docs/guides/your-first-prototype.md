@@ -63,3 +63,14 @@ as adding CSS classes, you can using `<style>` blocks anywhere within your conte
 
 You can add client-side Javascript into a page using `<script>` tags. These work
 as they would in a static HTML page.
+
+## Committing your changes to Git
+
+We recommend that you use the Git version control tool to help you keep track of
+your progress as you make changes to a prototype, build new prototypes and make
+new versions of existing prototypes. Git can also be used for quick and easy publication
+of prototypes to platforms such as Heroku and Azure.
+
+For help on the basic use of Git and links to tutorials, see [Setting up git and
+doing your first commit](https://govuk-prototype-kit.herokuapp.com/docs/setting-up-git)
+from the GOV.UK prototype kit.
