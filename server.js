@@ -58,7 +58,7 @@ app.set('view engine', '.hbs')
 
 app.set('views', path.join(__dirname, 'app', 'views'))
 
-app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
