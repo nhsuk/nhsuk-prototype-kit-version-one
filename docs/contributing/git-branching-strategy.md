@@ -1,4 +1,4 @@
-#Git branching strategy
+# Git branching strategy
 **Author**: Steven Adams  
 **Date**: 9/10/17  
 
