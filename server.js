@@ -15,6 +15,7 @@ const bodyParser = require('body-parser')
 // const http = require('http')
 const chalk = require('chalk')
 const browserSync = require('browser-sync')
+const favicon = require('serve-favicon')
 
 /**
  * Config
@@ -57,8 +58,7 @@ app.set('view engine', '.hbs')
 
 app.set('views', path.join(__dirname, 'app', 'views'))
 
-// uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')))
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))

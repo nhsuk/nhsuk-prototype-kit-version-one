@@ -5,8 +5,7 @@
   "scripts": {
     "start": "node start.js",
     "debug": "node --inspect server.js",
-    "setup": "npm install && npm run build && npm start",
-    "build": "gulp styles",
+    "setup": "npm install && npm start",
     "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.hbs'",
     "test": "npm run lint",
     "test-pa11y": "./node_modules/.bin/pa11y-ci"
