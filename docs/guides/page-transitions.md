@@ -1,8 +1,8 @@
-# Unified Prototyping Platform Documentation
+# NHSUK Prototype Kit
 [Table of Contents](/docs/guides/index.md)
 
 ## Page transitions
-UPP allows you to build prototypes that model a sequence of pages. HTML links
+The Prototype Kit allows you to build prototypes that model a sequence of pages. HTML links
 can be used to model simple transitions between pages and more complex transitions
 involving forms, validation and redirection can be modelled using server-side
 handlers.

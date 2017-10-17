@@ -1,4 +1,4 @@
-# Unified Prototyping Platform Documentation
+# NHSUK Prototype Kit
 
 ## Table of Contents
 1. [Getting Started](/docs/guides/getting-started.md)
