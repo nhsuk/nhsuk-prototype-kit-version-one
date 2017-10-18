@@ -8,7 +8,7 @@
     "setup": "npm install && npm start",
     "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.hbs'",
     "test": "npm run lint",
-    "test-pa11y": "./node_modules/.bin/pa11y-ci"
+    "test-pa11y": "node tests/pa11y/pa11y.js"
   },
   "standard": {
     "plugins": [
@@ -31,9 +31,9 @@
     "dotenv": "^4.0.0",
     "express": "~4.15.2",
     "express-handlebars": "^3.0.0",
+    "express-hbs": "^1.0.4",
     "express-session": "^1.15.5",
     "express-validator": "^4.1.1",
-    "express-hbs": "^1.0.4",
     "gulp-postcss": "^7.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
@@ -41,7 +41,6 @@
     "marked": "^0.3.6",
     "minimist": "^1.2.0",
     "morgan": "~1.8.1",
-    "pa11y-ci": "^1.2.0",
     "prompt": "^1.0.0",
     "require-dir": "^0.3.2",
     "serve-favicon": "~2.4.2",
@@ -50,6 +49,8 @@
   },
   "devDependencies": {
     "browser-sync": "^2.18.13",
+    "pa11y": "^5.0.0-beta.2",
+    "pa11y-reporter-html": "^1.0.0",
     "cssnano": "^3.10.0",
     "cssnext": "^1.8.4",
     "eslint-plugin-html": "^3.2.1",

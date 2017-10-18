@@ -6,3 +6,5 @@ node_modules
 public
 
 assets/scss/nhsuk
+
+tests/pa11y/reports/*.*

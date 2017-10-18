@@ -17,5 +17,6 @@ You must protect user privacy at all times, even when using prototypes. Always m
 3. [Server-side Logic](/docs/guides/server-side-logic.md)
 4. [Page Transitions](/docs/guides/page-transitions.md)
 5. [Providing Data Using Asynchronous APIs](/docs/guides/asynchronous-apis.md)
-6. [Publishing to Heroku](/docs/guides/publishing-to-heroku.md)
-7. [Debugging](/docs/guides/debugging.md)
+6. [Accessibility testing](/docs/guides/accessibility-testing.md)
+7. [Publishing to Heroku](/docs/guides/publishing-to-heroku.md)
+8. [Debugging](/docs/guides/debugging.md)
