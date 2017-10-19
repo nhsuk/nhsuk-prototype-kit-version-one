@@ -6,6 +6,7 @@ gulp.task('default', function (done) {
     'move-nhsuk-assets',
     'styles',
     'server',
+    'watch',
     done
   )
 })
