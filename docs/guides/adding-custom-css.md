@@ -1,4 +1,4 @@
-# NHSUK Prototype Kit</h1>
+# NHSUK Prototype Kit
 [Table of Contents](/docs/guides/index.md)
 
 ## Adding custom CSS
