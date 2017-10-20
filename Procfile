@@ -1,1 +1,1 @@
-web: node ./node_modules/gulp/bin/gulp styles && node server.js
+web: node ./node_modules/gulp/bin/gulp styles && node start.js
