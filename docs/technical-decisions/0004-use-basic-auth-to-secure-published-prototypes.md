@@ -1,8 +1,6 @@
 # 4/ Use basic-auth to secure published prototypes
-**Author(s)**: Steven Adams
-
-**Status**: Accepted
-
+**Author(s)**: Steven Adams   
+**Status**: Accepted   
 **Date**: 29th August 2017
 
 ## Context
