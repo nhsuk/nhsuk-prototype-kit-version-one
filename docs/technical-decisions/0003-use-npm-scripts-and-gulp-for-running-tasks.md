@@ -1,8 +1,6 @@
 # 4/ Use NPM scripts and Gulp for running tasks
-**Author(s)**: Steven Adams
-
-**Status**: Accepted
-
+**Author(s)**: Steven Adams   
+**Status**: Accepted   
 **Date**: 29th August 2017
 
 ## Context

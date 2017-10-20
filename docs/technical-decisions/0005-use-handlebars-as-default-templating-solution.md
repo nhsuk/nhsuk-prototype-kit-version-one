@@ -1,8 +1,6 @@
 # 5/ Use Handlebars as default templating solution
-**Author(s)**: Paul Mitchell
-
-**Status**: Accepted
-
+**Author(s)**: Paul Mitchell   
+**Status**: Accepted   
 **Date**: 13th September 2017
 
 ## Context
