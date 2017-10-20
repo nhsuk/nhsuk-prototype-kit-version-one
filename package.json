@@ -10,6 +10,10 @@
     "test": "npm run lint",
     "test-pa11y": "node tests/pa11y/pa11y.js"
   },
+  "engines": {
+    "node": "8.4.0",
+    "npm": "5.5.1"
+  },
   "standard": {
     "plugins": [
       "html"
