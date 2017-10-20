@@ -2,6 +2,10 @@
   "name": "nhsuk-prototype-kit",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nhsuk/nhsuk-prototype-kit.git"
+  },
   "scripts": {
     "start": "node start.js",
     "debug": "node --inspect server.js",
