@@ -1,4 +1,4 @@
-# NHSUK Prototype Kit Documentation
+# NHSUK Prototype Kit
 [Table of Contents](/docs/guides/index.md)
 
 ## Accessibility testing
