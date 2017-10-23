@@ -48,7 +48,7 @@ quite complex behaviours. For example, the following template and input handler
 create a simple guessing game.
 
 ### app/views/game.hbs
-```html
+```handlebars
 <form>
   <label>What number am I thinking of? <input type=text name=guess></label>
   <input type=submit value=Submit>
