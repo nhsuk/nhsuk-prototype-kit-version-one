@@ -6,9 +6,8 @@ gulp.task('watch-styles', function () {
   return gulp.watch(config.css.src, {cwd: './'}, ['styles'])
 })
 
-gulp.task('watch', function (done) {
-  runSequence(
-    'watch-styles',
-     done
-   )
+gulp.task('watch-scripts', function () {
+  return gulp.watch(config.scripts.src, {cwd: './'}, ['scripts'])
 })
+
+gulp.task('watch', ['watch-styles', 'watch-scripts'])
