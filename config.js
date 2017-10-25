@@ -42,6 +42,10 @@ module.exports = {
       // src: srcPath + 'scss/**/[!_]*.scss',
       src: [srcPath + 'scss/app/**/*.scss', srcPath + 'scss/nhsuk/**/*.scss'],
       dest: destPath
+    },
+    scripts: {
+      src: [srcPath + 'scripts/app/**/*.js', srcPath + 'scripts/nhsuk/**/*.js'],
+      dest: destPath
     }
   }
 
