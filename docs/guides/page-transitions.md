@@ -33,7 +33,7 @@ inputs on the form will have their values passed to the next template.
 ```
 
 ### app/views/page-2.hbs
-```html
+```handlebars
 <p>You entered...
 <p><strong>Name: </strong>{{my_name}}
 <p><strong>Address: </strong>{{my_address}}
@@ -60,7 +60,7 @@ Extending the example above, validation and session storage can be implemented a
 follows;
 
 ### app/views/page-1.hbs
-```html
+```handlebars
 <form action="/page-1" method="POST">
   <p><label>Your name: <input type=text name=my_name value="{{my_name}}"></label>
     {{#if error.my_name}}<span class="error">{{error.my_name}}</span>{{/if}}
@@ -108,7 +108,7 @@ module.exports = function (input, req) {
 ```
 
 ### app/views/page-2.hbs
-```html
+```handlebars
 <p>You entered...
 <p><strong>Name: </strong>{{validated.my_name}}
 <p><strong>Address: </strong>{{validated.my_address}}

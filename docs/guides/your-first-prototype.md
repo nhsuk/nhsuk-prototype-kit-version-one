@@ -36,7 +36,7 @@ engine makes it easy to use these variables to create dynamic page content.
 For example, the following template code asks the user to enter their name and greets
 them when they submit the form.
 
-```html
+```handlebars
 <form>
   <label>What is your name? <input type=text name=who_to_greet></label>
   <input type=submit value=Submit>

@@ -1,8 +1,6 @@
 # 2/ Use NPM for package management
-**Author(s)**: Steven Adams
-
-**Status**: Accepted
-
+**Author(s)**: Steven Adams   
+**Status**: Accepted    
 **Date**: 29th August 2017
 
 ## Context
