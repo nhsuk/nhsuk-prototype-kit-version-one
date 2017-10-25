@@ -1,10 +1,15 @@
 const markdown = require('marked')
 const path = require('path')
 const fs = require('fs')
+const express = require('express')
 
 module.exports = function (router) {
   if (process.env.NODE_ENV !== 'production') {
-    router.get('/docs/guides/:filename', markdownHandler)
+    router.get('/docs/guides/:filename(*)', markdownHandler)
+    router.use(
+      '/docs/assets',
+      express.static(path.join(__dirname, '../../docs/assets'))
+    )
   }
 }
 
