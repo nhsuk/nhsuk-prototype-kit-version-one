@@ -1,23 +1,108 @@
+<h1>NHSUK interface inventory</h1>
+<p>This inventory shows the interface elements available within the Prototype Kit.</p>
 <section class="nhsuk-component">
-<h2 id="local-header">Local Header<a href="/docs/guides/examples/components.md#local-header">View Source</a></h2>
-{{> components/local-header
-  title="Blisters"
-  text="Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP."
-}}
+  <h2 id="typography">Typography</h2>
+  <h3>Headings</h3>
+  <div class="example">
+    <h1>Heading level 1</h1>
+    <h2>Heading level 2</h2>
+    <h3>Heading level 3</h3>
+    <h4>Heading level 4</h4>
+    <h5>Heading level 5</h5>
+    <h6>Heading level 6</h6>
+  </div>
 </section>
 
+<hr />
+
 <section class="nhsuk-component">
-<h2 id="callouts">Callouts<a href="/docs/guides/examples/components.md#callouts">View Source</a></h2>
-{{> components/callout
-  title="Blisters"
-  text="Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP."
-  modifier="alert"
-}}
+  <h2 id="button">Buttons</h2>
+  <div class="example">
+    <button class="button">Button</button>
+    <button class="button" disabled>Disabled button</button>
+    <a class="button button--cancel" href="#">Cancel</a>
+    <input type="submit" class="button" value="Submit">
+  </div>
+<section>
+
+<hr />
+
+<section class="nhsuk-component">
+  <h2 id="local-header">Local Header<a href="/docs/guides/examples/components.md#local-header">View Source</a></h2>
+  <div class="example">
+    {{> components/local-header
+      title="Blisters"
+      text="Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP."
+    }}
+  </div>
 </section>
+
+<hr />
+
+<section class="nhsuk-component">
+  <h2 id="callouts">Callouts<a href="/docs/guides/examples/components.md#callouts">View Source</a></h2>
+  <div class="example">
+    {{> components/callout
+      title="Blisters"
+      text="Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP."
+      modifier="alert"
+    }}
+  </div>
+</section>
+
+<hr />
 
 <style>
-.nhsuk-component > h2 a {
-  float: right;
-  font-size: 50%;
-}
+  .nhsuk-component>h2 a {
+    float: right;
+    font-size: 50%;
+  }
+
+  .example {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid #bfc1c3;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-top: 30px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+  }
+
+  @media (min-width: 641px) {
+    .example {
+      padding-top: 45px;
+      padding-right: 30px;
+      padding-bottom: 30px;
+      padding-left: 30px;
+    }
+  }
+
+  .example:before {
+    content: "EXAMPLE";
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.21053em 0.78947em 0.21053em 0.78947em;
+    font-family: "nta", Arial, sans-serif;
+    font-weight: 400;
+    text-transform: none;
+    font-size: 12px;
+    line-height: 1.25;
+    background: #bfc1c3;
+    color: white;
+  }
+
+  @media (min-width: 641px) {
+    .example:before {
+      font-size: 14px;
+      line-height: 1.42857;
+    }
+  }
+
+  .example .highlight {
+    font-style: normal;
+    color: #0076c0;
+  }
 </style>
