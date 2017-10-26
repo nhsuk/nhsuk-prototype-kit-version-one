@@ -51,7 +51,12 @@ const hbs = handlebars.create({
   extname: '.hbs',
   defaultLayout: 'nhsuk_layout',
   layoutsDir: 'app/views/layouts',
-  partialsDir: 'app/views/partials'
+  partialsDir: 'app/views/partials',
+  helpers: {
+    'raw-helper': function (options) {
+      return options.fn()
+    }
+  }
 })
 app.engine('.hbs', hbs.engine)
 app.set('view engine', '.hbs')
