@@ -1,5 +1,21 @@
 <h1>NHSUK interface inventory</h1>
 <p>This inventory shows the interface elements available within the Prototype Kit.</p>
+
+<h2 id="notification-banner">Notification banner</h2>
+<div class="example">
+  <div class="notification-banner notification-banner--hiviz js-feedback-banner">
+    <p class="notification-banner--inner">
+        This is a new page. <a class="choices-profile-link" href="{{gp.choicesProfileLink}}">See the current version</a> on NHS Choices</a>.
+    </p>
+  </div>
+
+  <div class="notification-banner notification-banner--hiviz js-feedback-banner">
+    <p class="notification-banner--inner">
+        This is a new service. <a href="http://www.nhs.uk/">Go back to NHS Choices</a>.
+    </p>
+  </div>
+</div>
+
 <section class="nhsuk-component">
   <h2 id="typography">Typography</h2>
   <h3>Headings</h3>
@@ -56,8 +72,68 @@
   <div class="example">
     <button class="button">Button</button>
     <button class="button" disabled>Disabled button</button>
+    <button class="button button--secondary">Secondary button</button>
     <a class="button button--cancel" href="#">Cancel</a>
     <input type="submit" class="button" value="Submit">
+  </div>
+<section>
+
+<hr />
+
+<section class="nhsuk-component">
+  <h2 id="table">Tables</h2>
+  <div class="example">
+    <table>
+      <caption>Standard table</caption>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Contact</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>Google</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Apple</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+          </tr>
+          <tr>
+            <td>Tesla</td>
+            <td>Roland Mendel</td>
+            <td>Austria</td>
+          </tr>
+      </tbody>
+    </table>
+
+    <table class="table--two-column">
+      <caption>Two column table</caption>
+      <thead>
+        <tr>
+          <th>Company</th>
+          <th>Country</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+            <td>Google</td>
+            <td>Germany</td>
+          </tr>
+          <tr>
+            <td>Apple</td>
+            <td>Mexico</td>
+          </tr>
+          <tr>
+            <td>Tesla</td>
+            <td>Austria</td>
+          </tr>
+      </tbody>
+    </table>
   </div>
 <section>
 
