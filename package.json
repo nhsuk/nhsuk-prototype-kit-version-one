@@ -10,7 +10,7 @@
     "start": "node start.js",
     "debug": "node --inspect server.js",
     "setup": "npm install && npm start",
-    "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.hbs'",
+    "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.hbs' 'assets/scripts/**/*.js'",
     "test": "npm run lint",
     "test-pa11y": "node tests/pa11y/pa11y.js"
   },
