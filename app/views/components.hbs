@@ -1,20 +1,18 @@
 <h1>NHSUK interface inventory</h1>
 <p>This inventory shows the interface elements available within the Prototype Kit.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+  <li><a href="#typography">Typography</a></li>
+  <li><a href="#panels">Panels</a></li>
+  <li><a href="#lists">lists</a></li>
+  <li><a href="#buttons">Buttons</a></li>
+  <li><a href="#tables">Tables</a></li>
+  <li><a href="#callouts">Callouts</a></li>
+  <li><a href="#local-header">Local header</a></li>
+  <li><a href="#notification-banner">Notification banner</a></li>
+</ul>
 
-<h2 id="notification-banner">Notification banner</h2>
-<div class="example">
-  <div class="notification-banner notification-banner--hiviz js-feedback-banner">
-    <p class="notification-banner--inner">
-        This is a new page. <a class="choices-profile-link" href="{{gp.choicesProfileLink}}">See the current version</a> on NHS Choices</a>.
-    </p>
-  </div>
-
-  <div class="notification-banner notification-banner--hiviz js-feedback-banner">
-    <p class="notification-banner--inner">
-        This is a new service. <a href="http://www.nhs.uk/">Go back to NHS Choices</a>.
-    </p>
-  </div>
-</div>
+<hr />
 
 <section class="nhsuk-component">
   <h2 id="typography">Typography</h2>
@@ -27,61 +25,154 @@
     <h5>Heading level 5</h5>
     <h6>Heading level 6</h6>
   </div>
+
+  <h3>Body copy</h3>
+  <div class="example">
+    <p>A 20px body copy paragraph, maecenas sed diam eget risus varius blandit sit amet non magna. </p>
+    <p>Another body paragraph with <strong>strong</strong> text.</p>
+  </div>
+
+  <h3>Links</h3>
+  <div class="example">
+    <p><a href="#">A 19px link without surrounding text</a></p>
+    <p><a href="#">A 19px body copy link</a>. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+  </div>
+
+  <h3>Hidden text (progressive disclosure)</h3>
+  <div class="example">
+    <details class="" role="group">
+      <summary data-analytics="summary" role="button" aria-controls="details-content-0" aria-expanded="false">
+        <span class="details__summary">If you’re not sure it’s impetigo</span>
+      </summary>
+      <div id="details-content-0" aria-hidden="true">
+        <p>Impetigo can look similar to other skin conditions.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Skin symptoms</th>
+              <th>Possible cause</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Blisters on lips or around the mouth</td>
+              <td><a href="http://www.nhs.uk/conditions/cold-sore/Pages/Introduction.aspx">cold sores</a></td>
+            </tr>
+            <tr>
+              <td>Itchy, dry, cracked, sore</td>
+              <td><a href="http://www.nhs.uk/conditions/eczema-(atopic)/Pages/Introduction.aspx">eczema</a></td>
+            </tr>
+            <tr>
+              <td>Itchy blisters</td>
+              <td>
+                <a href="https://beta.nhs.uk/conditions/shingles">shingles</a>,
+                <a href="http://www.nhs.uk/conditions/Chickenpox/Pages/Introduction.aspx">chickenpox</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
+  </div>
 </section>
 
-<h3>Lists</h3>
-<div class="example">
-  <ul>
-    <li>A bulleted list</li>
-    <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
-    <li>vestibulum id ligula porta felis euismod semper</li>
-    <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
-  </ul>
-
-  <ol>
-    <li>A numbered list.</li>
-    <li>This is the second step in a numbered list.</li>
-    <li>The third step is to make sure each item is a full sentence ending with a full stop.</li>
-  </ol>
-
-  <ul class="list--chevron">
-    <li>A list with chevrons</li>
-    <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
-    <li>vestibulum id ligula porta felis euismod semper</li>
-    <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
-  </ul>
-
-  <ul class="list--check">
-    <li>A list with ticks</li>
-    <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
-    <li>vestibulum id ligula porta felis euismod semper</li>
-    <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
-  </ul>
-
-  <ul class="list--cross">
-    <li>A list with crosses</li>
-    <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
-    <li>vestibulum id ligula porta felis euismod semper</li>
-    <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
-  </ul>
-</div>
 <hr />
 
 <section class="nhsuk-component">
-  <h2 id="button">Buttons</h2>
+  <h2 id="panels">Panels</h2>
+  <div class="example">
+    <div class="panel">
+      <h3 class="panel__header">Panel header</h3>
+      <div class="panel__content">
+        <p>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+      </div>
+      <div class="panel__footer">
+        <p>Panel footer (supporting text)</p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel__content panel__content--half">
+        <h3>Do</h3>
+        <ul class="list--check">
+          <li>wash your face and remove eye makeup before bed</li>
+          <li>replace your eye makeup every 6 months</li>
+          <li>
+            <a href="#">keep your eyelids and eyelashes clean</a> - especially if you have blepharitis
+          </li>
+        </ul>
+      </div>
+      <div class="panel__content panel__content--half">
+        <h3>Don’t</h3>
+        <ul class="list--cross">
+          <li>share towels or flannels with someone who has a stye</li>
+          <li>rub your eyes if you haven’t recently washed your hands</li>
+          <li>put contact lenses in before washing your hands</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr />
+
+<section class="nhsuk-component">
+  <h2 id="lists">Lists</h2>
+  <div class="example">
+    <ul>
+      <li>A bulleted list</li>
+      <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
+      <li>vestibulum id ligula porta felis euismod semper</li>
+      <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
+    </ul>
+
+    <ol>
+      <li>A numbered list.</li>
+      <li>This is the second step in a numbered list.</li>
+      <li>The third step is to make sure each item is a full sentence ending with a full stop.</li>
+    </ol>
+
+    <ul class="list--chevron">
+      <li>A list with chevrons</li>
+      <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
+      <li>vestibulum id ligula porta felis euismod semper</li>
+      <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
+    </ul>
+
+    <ul class="list--check">
+      <li>A list with ticks</li>
+      <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
+      <li>vestibulum id ligula porta felis euismod semper</li>
+      <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
+    </ul>
+
+    <ul class="list--cross">
+      <li>A list with crosses</li>
+      <li>vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor</li>
+      <li>vestibulum id ligula porta felis euismod semper</li>
+      <li>integer posuere erat a ante venenatis dapibus posuere velit aliquet</li>
+    </ul>
+  </div>
+</section>
+
+<hr />
+
+<section class="nhsuk-component">
+  <h2 id="buttons">Buttons</h2>
   <div class="example">
     <button class="button">Button</button>
     <button class="button" disabled>Disabled button</button>
+    <input class="button" type="submit"value="Submit">
+    <br>
     <button class="button button--secondary">Secondary button</button>
     <a class="button button--cancel" href="#">Cancel</a>
-    <input type="submit" class="button" value="Submit">
   </div>
 <section>
 
 <hr />
 
 <section class="nhsuk-component">
-  <h2 id="table">Tables</h2>
+  <h2 id="tables">Tables</h2>
   <div class="example">
     <table>
       <caption>Standard table</caption>
@@ -140,19 +231,7 @@
 <hr />
 
 <section class="nhsuk-component">
-  <h2 id="local-header">Local Header<a href="/docs/guides/examples/components.md#local-header">View Source</a></h2>
-  <div class="example">
-    {{> components/local-header
-      title="Blisters"
-      text="Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP."
-    }}
-  </div>
-</section>
-
-<hr />
-
-<section class="nhsuk-component">
-  <h2 id="callouts">Callouts<a href="/docs/guides/examples/components.md#callouts">View Source</a></h2>
+  <h2 id="callouts">Callouts</h2>
   <div class="example">
     {{> components/callout
       title="Default"
@@ -204,12 +283,36 @@
 
 <hr />
 
-<style>
-  .nhsuk-component>h2 a {
-    float: right;
-    font-size: 50%;
-  }
+<section class="nhsuk-component">
+  <h2 id="local-header">Local Header</h2>
+  <div class="example">
+    {{> components/local-header
+      title="Blisters"
+      text="Blisters should heal on their own within a week. They can be painful while they heal, but you shouldn’t need to see a GP."
+    }}
+  </div>
+</section>
 
+<hr />
+
+<section class="nhsuk-component">
+  <h2 id="notification-banner">Notification banner</h2>
+  <div class="example">
+    <div class="notification-banner notification-banner--hiviz js-feedback-banner">
+      <p class="notification-banner--inner">
+          This is a new page. <a class="choices-profile-link" href="{{gp.choicesProfileLink}}">See the current version</a> on NHS Choices</a>.
+      </p>
+    </div>
+
+    <div class="notification-banner notification-banner--hiviz js-feedback-banner">
+      <p class="notification-banner--inner">
+          This is a new service. <a href="http://www.nhs.uk/">Go back to NHS Choices</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
   .example {
     position: relative;
     overflow: hidden;
