@@ -6,28 +6,36 @@
     )
   }
 
-  // Synchronises the is-selected class on a radio button's label to the
-  // checked property of the wrapped radio button. Attach as the onChange
-  // handler to the container element for a set of radio buttons
-  function radioSelectionManager (ev) {
-    forEachElement(ev.currentTarget, 'input[type=radio]',
-      function (radio) {
-        radio.parentNode.classList[radio.checked ? 'add' : 'remove']('is-selected')
+  // Synchronises a class on the labels for a set of multiple-choice inputs
+  // based on a predicate applied to each input.
+  function multipleChoiceInputLabelClassSynchroniser (container, className, predicate) {
+    forEachElement(container, 'input[type=radio], input[type=checkbox]',
+      function (input) {
+        input.parentElement.classList[predicate(input) ? 'add' : 'remove'](className)
       }
     )
   }
 
-  // Synchronises the is-focused class on a radio button's label to the
-  // focus state of the wrapped radio button. Attach as the focusin and
-  // focusout handler to the container element for a set of radio buttons.
-  // (Note that as the focus and blur events don't bubble, they can't be used
-  // in this situation)
-  function radioFocusStateManager (ev) {
-    forEachElement(ev.currentTarget, 'input[type=radio]',
-      function (radio) {
-        const hasFocus = document.activeElement === radio
-        radio.parentNode.classList[hasFocus ? 'add' : 'remove']('is-focused')
-      }
+  // Synchronises is-selected class on the wrapping labels for a set of
+  // multiple-choice inputs to the checked state of each input.
+  //
+  // Attach as the change event handler to the container element for the
+  // set of inputs.
+  function multipleChoiceSelectionManager (ev) {
+    multipleChoiceInputLabelClassSynchroniser(ev.currentTarget, 'is-selected',
+      function (input) { return input.checked }
+    )
+  }
+
+  // Synchronises the is-focused class on the wrapping labels for a set of
+  // multiple-choice inputs to the focus state of each input.
+  //
+  // Attach as the focusin and focusout handlers to the container element for
+  // the set of inputs. (Note that the focus and blur events can't be used in
+  // this situation because they don't bubble.)
+  function multipleChoiceFocusStateManager (ev) {
+    multipleChoiceInputLabelClassSynchroniser(ev.currentTarget, 'is-focused',
+      function (input) { return document.activeElement === input }
     )
   }
 
@@ -38,12 +46,12 @@
     document.documentElement.classList.add('js-enabled')
     document.documentElement.classList.remove('no-js')
 
-    // Attach radioSelectionManager to all multiple choice containers
+    // Attach handlers to all multiple choice containers
     forEachElement(document, '.multiple-choice__container',
       function (container) {
-        container.addEventListener('change', radioSelectionManager)
-        container.addEventListener('focusin', radioFocusStateManager)
-        container.addEventListener('focusout', radioFocusStateManager)
+        container.addEventListener('change', multipleChoiceSelectionManager)
+        container.addEventListener('focusin', multipleChoiceFocusStateManager)
+        container.addEventListener('focusout', multipleChoiceFocusStateManager)
       }
     )
   })
