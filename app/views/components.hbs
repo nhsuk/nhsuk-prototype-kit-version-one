@@ -459,4 +459,32 @@
     font-style: normal;
     color: #0076c0;
   }
+
+  /* work around font override inside code examples */
+  html pre[class*='language-'] *, html code[class*='language-'] * {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
 </style>
+
+<link rel="stylesheet" href="/docs/assets/prism.css">
+<script src="/docs/assets/prism.min.js"></script>
+
+<script>
+function createSourceView (el) {
+  var source = el.innerHTML
+
+  var codeBlock = document.createElement('code')
+  codeBlock.classList.add('language-markup')
+  codeBlock.appendChild(document.createTextNode(source))
+
+  var sourceView = document.createElement('pre')
+  sourceView.appendChild(codeBlock)
+
+  el.insertAdjacentElement('afterend', sourceView)
+}
+
+Array.prototype.forEach.call(
+  document.querySelectorAll('div.example'),
+  createSourceView
+)
+</script>

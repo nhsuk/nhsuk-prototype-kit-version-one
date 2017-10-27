@@ -1,7 +1,11 @@
 {{{markdown}}}
 
 {{! Syntax highlighting for code examples in the documentation }}
-<style>code { font-family: monospace; }</style>
+<style>
+  /* work around font override inside code examples */
+  html pre[class*='language-'] *, html code[class*='language-'] * {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+</style>
 <link rel="stylesheet" href="/docs/assets/prism.css">
-<script src="/docs/assets/clipboard.min.js"></script>
 <script src="/docs/assets/prism.min.js"></script>
