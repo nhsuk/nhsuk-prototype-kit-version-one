@@ -48,6 +48,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "marked": "^0.3.6",
     "morgan": "~1.8.1",
+    "portscanner": "^2.1.1",
     "prompt": "^1.0.0",
     "require-dir": "^0.3.2",
     "run-sequence": "^2.1.0",
