@@ -5,7 +5,6 @@
   also includes sourcemaps
 */
 const config = require('../config.js').gulp
-
 const gulp = require('gulp')
 const sass = require('gulp-sass')
 const postcss = require('gulp-postcss')
