@@ -10,8 +10,9 @@
   <li><a href="#callouts">Callouts</a></li>
   <li><a href="#local-header">Local header</a></li>
   <li><a href="#notification-banner">Notification banner</a></li>
-  <li><a href="#multiple-choice-radio-buttons">Multiple choice radio buttons</a></li>
-  <li><a href="#multiple-choice-checkboxes">Multiple choice checkboxes</a></li>
+  <li><a href="#text-inputs">Text inputs</a></li>
+  <li><a href="#radio-buttons">Radio buttons</a></li>
+  <li><a href="#checkboxes">Checkboxes</a></li>
 </ul>
 
 <hr />
@@ -315,7 +316,50 @@
 </section>
 
 <section class="nhsuk-component">
-  <h2 id="multiple-choice-radio-buttons">Multiple choice radio buttons</h2>
+  <h2 id="text-inputs">Text inputs</h2>
+  <div class="example">
+    <div class="form-line">
+      <label for="input-text" class="form-label">
+        Label
+      </label>
+      <input
+        type="text"
+        name="input-text"
+        id="input-text"
+        class="form-textbox"
+      >
+    </div>
+
+    <div class="form-line">
+      <label for="input-with-support" class="form-label">
+        Label
+        <span class="form-label__hint" id="hintId">Supporting information</span>
+      </label>
+      <input
+        type="text"
+        name="input-with-support"
+        id="input-with-support"
+        class="form-textbox"
+        aria-describedby="hintId"
+      >
+    </div>
+
+    <div class="form-line">
+      <label for="input-large-label" class="form-label form-label--large">
+        Large label
+      </label>
+      <input
+        type="text"
+        name="input-large-label"
+        id="input-large-label"
+        class="form-textbox"
+      >
+    </div>
+  </div>
+</section>
+
+<section class="nhsuk-component">
+  <h2 id="radio-buttons">Radio buttons</h2>
   <section>
     <h3>Vertically stacked</h3>
     <div class="example">
@@ -363,7 +407,7 @@
 </section>
 
 <section class="nhsuk-component">
-  <h2 id="multiple-choice-checkboxes">Multiple choice checkboxes</h2>
+  <h2 id="checkboxes">Checkboxes</h2>
   <section>
     <h3>Vertically stacked</h3>
     <div class="example">
