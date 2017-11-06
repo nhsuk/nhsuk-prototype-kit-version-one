@@ -14,7 +14,6 @@ const bodyParser = require('body-parser')
 // const debug = require('debug')('nhsuk-prototype-kit:server')
 // const http = require('http')
 const chalk = require('chalk')
-const browserSync = require('browser-sync')
 const favicon = require('serve-favicon')
 
 /**
@@ -125,7 +124,7 @@ utils.findAvailablePort(app, function (port) {
     app.listen(port)
   } else {
     app.listen(port - 50, function () {
-      browserSync({
+      require('browser-sync')({
         proxy: 'localhost:' + (port - 50),
         port: port,
         ui: false,
