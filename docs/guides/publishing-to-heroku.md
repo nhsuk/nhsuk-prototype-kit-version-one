@@ -22,4 +22,9 @@ $ heroku config:set AUTH_USERNAME=spartacus AUTH_PASSWORD=letmein1
 ## Publishing to Azure
 Follow the [Azure Node.js Quick Start](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-get-started-nodejs).
 
-For production deployment, set the username and password for the basic authentication that protects the site in the Application Settings section of the Azure console. Add variables named `AUTH_USERNAME` and `AUTH_PASSWORD` to the App Settings list.
+Use the Azure Portal or other tool to add tbe following to the App Settings list
+in Application Settings.
+- `WEBSITE_NODE_DEFAULT_VERSION` set to the version of Node.js in package.json
+- `AUTH_USERNAME` and `AUTH_PASSWORD` set to the username and password used to protect the prototype
+
+![Screenshot of Azure Portal showing the settings](/docs/assets/azure-settings.png)
