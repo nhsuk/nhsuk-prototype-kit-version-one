@@ -26,8 +26,8 @@ const config = require('./config.js').app
  */
 const utils = require('./lib/utils.js')
 
-let username = process.env.USERNAME
-let password = process.env.PASSWORD
+let username = process.env.AUTH_USERNAME || process.env.USERNAME
+let password = process.env.AUTH_PASSWORD || process.env.PASSWORD
 let env = process.env.NODE_ENV || 'development'
 const useBrowserSync = config.useBrowserSync.toLowerCase()
 const useAuth = process.env.USE_AUTH || config.useAuth.toLowerCase()
