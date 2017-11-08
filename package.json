@@ -7,16 +7,21 @@
     "url": "https://github.com/nhsuk/nhsuk-prototype-kit.git"
   },
   "scripts": {
-    "start": "node start.js",
+    "start": "per-env",
+    "start:production": "node server.js",
+    "start:development": "node start.js",
     "debug": "node --inspect server.js",
     "setup": "npm install && npm start",
     "lint": "standard '*.js' 'app/**/*.js' 'app/**/*.hbs' 'assets/scripts/**/*.js'",
     "test": "npm run lint",
-    "test-pa11y": "node tests/pa11y/pa11y.js"
+    "test-pa11y": "node tests/pa11y/pa11y.js",
+    "postinstall": "per-env",
+    "postinstall:production": "gulp production",
+    "postinstall:development": "echo"
   },
   "engines": {
-    "node": "8.4.0",
-    "npm": "5.5.1"
+    "node": "8.7.0",
+    "npm": "5.0.3"
   },
   "standard": {
     "plugins": [
@@ -37,23 +42,25 @@
     "cssnano": "^3.10.0",
     "debug": "~2.6.3",
     "dotenv": "^4.0.0",
+    "eslint-plugin-html": "^3.2.1",
     "express": "~4.15.2",
     "express-handlebars": "^3.0.0",
     "express-session": "^1.15.5",
     "express-validator": "^4.1.1",
     "frontend-library": "git://github.com/nhsuk/frontend-library.git#0.6.0",
+    "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
     "gulp-postcss": "^7.0.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.6.1",
     "marked": "^0.3.6",
     "morgan": "~1.8.1",
+    "per-env": "^1.0.2",
     "portscanner": "^2.1.1",
     "prompt": "^1.0.0",
     "require-dir": "^0.3.2",
     "run-sequence": "^2.1.0",
     "serve-favicon": "~2.4.2",
-    "eslint-plugin-html": "^3.2.1",
     "standard": "^10.0.3"
   },
   "devDependencies": {

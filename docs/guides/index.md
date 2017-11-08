@@ -8,5 +8,5 @@
 5. [Adding custom CSS](/docs/guides/adding-custom-css.md)
 6. [Providing Data Using Asynchronous APIs](/docs/guides/asynchronous-apis.md)
 7. [Accessibility testing](/docs/guides/accessibility-testing.md)
-8. [Publishing to Heroku](/docs/guides/publishing-to-heroku.md)
+8. [Publishing to Heroku and Azure](/docs/guides/publishing-to-heroku.md)
 9. [Debugging](/docs/guides/debugging.md)
