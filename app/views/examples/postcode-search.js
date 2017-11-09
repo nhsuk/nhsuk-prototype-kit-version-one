@@ -68,7 +68,7 @@ module.exports = function postcodeSearch (input, req) {
 }
 
 function isPostcodeFormatValid (postcode) {
-  return /^([A-Z][A-Z0-9]?[A-Z0-9]?[A-Z0-9]? {1,2}[0-9][A-Z0-9]{2})$/i.test(postcode)
+  return /^([A-Z][A-Z0-9]?[A-Z0-9]?[A-Z0-9]? {0,2}[0-9][A-Z0-9]{2})$/i.test(postcode)
 }
 
 function normalisePostcode (postcode) {
