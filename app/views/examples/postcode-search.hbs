@@ -1,0 +1,100 @@
+{{! local header to introduce the page to the user }}
+<div class="local-header">
+  <h1 class="local-header__title">{{title}}</h1>
+
+  <div class="local-header__intro">
+    <div class="reading-width">
+      <p>Demonstrating data service access, form validation and dynamic content.</p>
+    </div>
+  </div>
+</div>
+
+{{! if an address is stored in session, show it here }}
+{{#if validated.address}}
+<p>Currently selected address: {{validated.address}}</p>
+{{/if}}
+
+{{! form to acquire the postcode to search }}
+<form method="POST" id="postcode-form">
+  <div class="form-line">
+    <label for="postcode" class="form-label">
+      Enter a UK postcode
+      <span class="form-label__hint" id="hintId">(e.g. YO23 1BG)</span>
+    </label>
+    <input type="text" name="postcode" id="postcode"
+           class="form-textbox"
+           value="{{postcode}}" {{! this is the most recently entered postcode }}
+           autofocus>
+  </div>
+
+  {{! display error message if the postcode format isn't valid }}
+  {{#if error.badFormat}}
+    <div class="callout callout--info">
+      <h2>Info</h2>
+      <p>Sorry, I don't recognise <q>{{postcode}}</q>. Please try another.</p>
+    </div>
+  {{/if}}
+
+  {{! submit button's disabled state is managed by Javascript below }}
+  <input class="button" type="submit" value="Submit" disabled>
+  <a class="button button--cancel" href="postcode-search">Reset</a>
+</form>
+
+{{#if error.connectionFailure}}
+  <div class="callout callout--error">
+    <h2>Error</h2>
+    <p>Unable to search for <q>{{postcode}}</q> at this time due to a connection failure. Please try again later.</p>
+  </div>
+{{/if}}
+
+{{! form to acquire the single address chosen from the selection }}
+{{#if results}}
+  <form method="POST" id="address-form">
+    <fieldset>
+      <legend>Select your address from the following list:</legend>
+      <div class="multiple-choice__container">
+        {{#each results as |result key|}}
+        <label class="multiple-choice multiple-choice--radio">
+          <input class="multiple-choice__input" type="radio"
+                 name="address" value="{{key}}">
+          {{result}}
+        </label>      
+        {{/each}}
+      </div>
+    </fieldset>
+
+    {{#if error.unknownAddress}}
+      <div class="callout callout--info">
+        <h2>Info</h2>
+        <p>Sorry, I don't recognise the address you selected. Please try another.</p>
+      </div>
+    {{/if}}
+
+    <input class="button" type="submit" value="Confirm Address" disabled>
+  </form>
+{{/if}}
+
+<script>
+// manage the disabled state of the submit buttons according to whether
+// values have been selected in their respective forms
+function submitButtonDisabledStateHandler (predicate) {
+  return function () {
+    const submitButton = this.querySelector('input[type=submit]')
+    if (submitButton) {
+      submitButton.disabled = !predicate(this)
+    }
+  }
+}
+
+[
+  ['#postcode-form', 'input', el => el.querySelector('#postcode').value.trim()],
+  ['#address-form', 'change', el => el.querySelector('input[type=radio]:checked')]
+].forEach(([rootSelector, eventType, predicate]) => {
+  const rootEl = document.querySelector(rootSelector)
+  if (rootEl) {
+    const handler = submitButtonDisabledStateHandler(predicate).bind(rootEl)
+    rootEl.addEventListener(eventType, handler)
+    handler()
+  }
+})
+</script>
