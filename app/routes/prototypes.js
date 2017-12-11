@@ -63,7 +63,7 @@ module.exports = function (app, hbs) {
        .then(redirectOrRender(req, res))
        .catch(ex => {
          console.log(ex)
-         next()
+         next(ex)
        })
   })
 }
