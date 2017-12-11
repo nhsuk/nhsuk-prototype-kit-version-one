@@ -26,7 +26,11 @@ module.exports = function (app, hbs) {
     let handler = input => input
     try {
       handler = require(`../views/${req.params.prototype}.js`)
-    } catch (e) {}
+    } catch (e) {
+      if (e instanceof Error && e.code !== 'MODULE_NOT_FOUND') {
+        throw e
+      }
+    }
 
     return handler(Object.assign({}, req.body, req.query, {validated: req.session.validated || {}}), req)
   }
