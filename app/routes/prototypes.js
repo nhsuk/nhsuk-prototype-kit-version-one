@@ -22,13 +22,29 @@ module.exports = function (app, hbs) {
     if (!templates[`${req.params.prototype}.hbs`]) throw new Error(`Prototype template '${req.params.prototype}.hbs' not found`)
   }
 
-  const generateInput = req => () => {
-    let handler = input => input
-    try {
-      handler = require(`../views/${req.params.prototype}.js`)
-    } catch (e) {}
+  const prototypeHandler = req => {
+    let modulePath = `../views/${req.params.prototype}.js`
 
-    return handler(Object.assign({}, req.body, req.query, {validated: req.session.validated || {}}), req)
+    // use resolve to quietly check for the existence of the code-behind file
+    try {
+      require.resolve(modulePath)
+    } catch (e) {
+      modulePath = ''
+    }
+
+    // require the code-behind module if it exists
+    return modulePath
+         ? require(modulePath)
+         : input => input
+  }
+
+  const generateInput = req => () => {
+    const input = Object.assign({},
+      req.body,
+      req.query,
+      {validated: req.session.validated || {}}
+    )
+    return prototypeHandler(req)(input, req)
   }
 
   const validateRequest = req => input => {
@@ -59,7 +75,7 @@ module.exports = function (app, hbs) {
        .then(redirectOrRender(req, res))
        .catch(ex => {
          console.log(ex)
-         next()
+         next(ex)
        })
   })
 }
